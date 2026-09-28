@@ -125,6 +125,29 @@ section.block{padding-block:clamp(72px,9vw,120px)}
   .gallery .wide{grid-column:auto;aspect-ratio:1258/683;height:auto}
 }
 
+/* latest videos */
+.latest{padding-top:clamp(8px,2vw,24px);padding-bottom:clamp(40px,6vw,72px)}
+.latest .head{margin-bottom:28px}
+.latest .head h2{font-size:clamp(44px,5.5vw,76px)}
+.vfeature{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;align-items:stretch}
+@media (max-width:900px){.vfeature{grid-template-columns:1fr}}
+.vplay{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:24px;overflow:hidden;background:#000;cursor:pointer;color:var(--paper)}
+.vplay img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease,opacity .3s ease;opacity:.9}
+.vplay:hover img{transform:scale(1.03);opacity:1}
+.vplay .pbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;background:var(--accent);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.vplay iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vmeta{display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:28px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.vmeta .tag{color:var(--accent);font-weight:700;font-size:15px}
+.vmeta strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(28px,2.6vw,38px);line-height:1.05;text-transform:uppercase;margin-top:10px}
+.vmeta span{color:var(--soft);font-size:16px}
+.vgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:1100px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.vgrid{grid-template-columns:1fr}}
+.vcard .vplay{border-radius:18px}
+.vcard .vplay .pbtn{width:48px;height:48px}
+.vcard p{margin-top:12px;font-weight:500;font-size:16px;line-height:1.35}
+.vcard small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
 footer .wrap{padding-block:clamp(72px,9vw,120px) 48px}
@@ -144,6 +167,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   <div class="wrap">
     <a class="logo" href="#top">Ben Brunner</a>
     <nav aria-label="Main">
+      <a href="#videos">Videos</a>
       <a href="#demos">Demos</a>
       <a href="#hosting">Hosting</a>
       <a href="#gallery">Gallery</a>
@@ -169,6 +193,18 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   </section>
 
   <div class="wrap"><div class="wave" id="wave" aria-hidden="true"></div></div>
+
+  <section class="latest wrap" id="videos" aria-labelledby="videos-title">
+    <div class="head">
+      <div>
+        <h2 id="videos-title">Latest voiceover work</h2>
+        <p>Fresh narration for Lore Lockdown and Marvelous LongReads. Press play.</p>
+      </div>
+      <a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin/community" target="_blank" rel="noopener">See all on YouTube</a>
+    </div>
+    <div class="vfeature" id="vfeature"></div>
+    <div class="vgrid" id="vgrid"></div>
+  </section>
 
   <section class="work wrap" aria-labelledby="work-label">
     <div class="label" id="work-label">Featured work</div>
@@ -280,6 +316,73 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       w.appendChild(s);
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+<script>
+  // Latest videos from the YouTube community page.
+  // To add a new one: put a new line at the TOP of this list with the video ID (the part after watch?v=), title and channel.
+  var VIDEOS = [
+    ['lq5n_0QEzXE', "Ginger Snaps' Werewolf Entity Anatomy Explained", 'Lore Lockdown'],
+    ['bvInb1tGALQ', 'How Did VR Troopers (1994-1996) Really End?', 'Lore Lockdown'],
+    ['UCeSg5VEdxM', '8 Most Memorable Captain Planet Villains', 'Lore Lockdown'],
+    ['AgmWF1PJ_Pw', 'How Did Danny Phantom (2003-2007) Really End?', 'Lore Lockdown'],
+    ['1_qYWkGxq28', 'How Did The Twilight Zone (1985) Really End?', 'Lore Lockdown'],
+    ['DS0iMB20W_w', "Entire Green Lantern Corps Comic Book Saga - The Ultimate and Complete Video On Oa's Finest", 'Marvelous LongReads'],
+    ['WQsGyNfjJao', "Knull's Symbiotic Anatomy Explained", 'Lore Lockdown'],
+    ['HR1IBM45xnI', "What's The Final Fate Of Ash Williams In The End Of The Evil Dead Franchise?", 'Lore Lockdown'],
+    ['I0P654eF9h4', "Stephen King's Dark Tower Anatomy Explained", 'Lore Lockdown'],
+    ['gOzPRRFJhmY', "Roy's Anatomy Explained - MTV's The Head", 'Lore Lockdown'],
+    ['IJk5AzW-k0k', 'How Did Dynomutt, Dog Wonder (1976) Really End?', 'Lore Lockdown'],
+    ['MlPHMzp7b68', 'How Did Legends of the Hidden Temple (Nickelodeon) End?', 'Lore Lockdown'],
+    ['YbMpFMU7Lm8', "T-1000's Anatomy Explained", 'Lore Lockdown'],
+    ['ctCDN-lPgi8', "Captain Planet's Anatomy Explained", 'Lore Lockdown'],
+    ['2fh2Xl7YuQg', '13 Physiological Facts About Rorschach', 'Lore Lockdown']
+  ];
+  var GRID_COUNT = 8; // how many smaller videos to show under the featured one
+
+  (function(){
+    var PLAY = '<span class="pbtn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+    function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+    function player(v, big){
+      var b = document.createElement('button');
+      b.className = 'vplay';
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Play: ' + v[1]);
+      b.innerHTML = '<img src="https://i.ytimg.com/vi/' + v[0] + '/' + (big ? 'maxresdefault' : 'hqdefault') + '.jpg" alt="" loading="lazy">' + PLAY;
+      var im = b.querySelector('img');
+      im.addEventListener('load', function(){ if (im.naturalWidth < 200) im.src = 'https://i.ytimg.com/vi/' + v[0] + '/hqdefault.jpg'; });
+      im.addEventListener('error', function(){ im.src = 'https://i.ytimg.com/vi/' + v[0] + '/hqdefault.jpg'; }, {once: true});
+      b.addEventListener('click', function(){
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?autoplay=1&rel=0';
+        f.title = v[1];
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        b.innerHTML = '';
+        b.appendChild(f);
+        b.style.cursor = 'default';
+      }, {once: true});
+      return b;
+    }
+    var first = VIDEOS[0];
+    var feat = document.getElementById('vfeature');
+    feat.appendChild(player(first, true));
+    var meta = document.createElement('div');
+    meta.className = 'vmeta';
+    meta.innerHTML = '<div><div class="tag">Newest release</div><strong>' + esc(first[1]) + '</strong></div>' +
+      '<div><span>Narrated by Ben Brunner for ' + esc(first[2]) + '</span></div>' +
+      '<a class="btn btn-accent" href="https://www.youtube.com/watch?v=' + first[0] + '" target="_blank" rel="noopener">Watch on YouTube</a>';
+    feat.appendChild(meta);
+    var grid = document.getElementById('vgrid');
+    VIDEOS.slice(1, 1 + GRID_COUNT).forEach(function(v){
+      var c = document.createElement('div');
+      c.className = 'vcard';
+      c.appendChild(player(v, false));
+      var p = document.createElement('p');
+      p.innerHTML = esc(v[1]) + '<small>' + esc(v[2]) + '</small>';
+      c.appendChild(p);
+      grid.appendChild(c);
+    });
   })();
 </script>
 </body>
