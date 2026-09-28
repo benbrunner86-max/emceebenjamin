@@ -117,6 +117,20 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .btn-outline{border:2px solid var(--ink);color:var(--ink)}
 .btn-outline:hover{background:var(--ink);color:var(--paper)}
 
+/* about */
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.about .wrap{grid-template-columns:1fr}}
+.about .side{position:sticky;top:112px;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+@media (max-width:900px){.about .side{position:static}}
+.about .side .label{margin-bottom:0}
+.about h2{font-size:clamp(56px,7vw,96px)}
+.about .lead{font-size:clamp(20px,1.9vw,24px);line-height:1.45;color:var(--paper)}
+.about .body{display:flex;flex-direction:column;gap:22px;max-width:680px;color:var(--soft)}
+.about .body .turn{font-weight:700;color:var(--paper)}
+.about .motto{margin-top:18px;padding-top:28px;border-top:2px solid var(--line)}
+.about .motto p{color:var(--soft)}
+.about .motto strong{display:block;margin-top:14px;font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1.02;text-transform:uppercase;color:var(--accent)}
+
 /* gallery */
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:300px;gap:20px}
 .gallery img{width:100%;height:100%;object-fit:cover;border-radius:24px}
@@ -188,6 +202,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       <a href="#videos">Videos</a>
       <a href="#demos">Demos</a>
       <a href="#hosting">Hosting</a>
+      <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a class="btn btn-accent" href="#contact">Book me</a>
     </nav>
@@ -300,6 +315,32 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
           <div class="links"><a class="btn btn-dark" href="https://playthatfunkybingo.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/playthatfunkybingo" target="_blank" rel="noopener">Facebook</a></div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="block about" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="side">
+        <div class="label">About me</div>
+        <h2 id="about-title">Ben<br>Brunner</h2>
+        <p class="lead">Ben Brunner is a journalist, broadcaster, narrator, host, and storyteller whose career has been driven by a love of people, conversation, and the stories that bring communities to life.</p>
+        <a class="btn btn-accent" href="#contact">Work with me</a>
+      </div>
+      <div class="body">
+        <p>A graduate of Salisbury University with a degree in Broadcast Journalism, Ben has spent his career behind microphones, in front of cameras, on stages, and wherever there is a story worth telling. His work has taken him from radio studios to live events, from community journalism to digital entertainment, giving him a unique perspective on what it takes to capture an audience&rsquo;s attention&mdash;and keep it.</p>
+        <p>Ben has built much of his broadcasting career on Maryland&rsquo;s Eastern Shore, where he has worked in public radio as an on-air host, reporter, editor, and contributor. He has hosted All Things Considered, produced and edited local newstalk programming, interviewed community leaders and newsmakers, and covered the people, events, challenges, and successes that make the Eastern Shore unique.</p>
+        <p>His experience also extends into the world of digital storytelling. Ben has spent a year working as a narrator for the YouTube channels Marvelous Videos and Lore Lockdown, lending his voice to long-form documentary-style content. The work has given him experience bringing scripted stories to life through narration, using pacing, tone, emphasis, and delivery to maintain an audience&rsquo;s attention throughout a story.</p>
+        <p>Narration has become a natural extension of Ben&rsquo;s broadcasting background. Unlike traditional radio, where the personality of the host can be central to the presentation, documentary narration requires the voice to serve the story&mdash;knowing when to build tension, when to let a moment breathe, and when to allow the information itself to take center stage.</p>
+        <p class="turn">But broadcasting for Ben has never been limited to reading the news.</p>
+        <p>For nearly a decade, he has also worked as a live game-show host and entertainer, developing the ability to connect with audiences in real time, think on his feet, improvise, and turn an ordinary event into a memorable experience. That combination of journalism, narration, and live entertainment has become a defining part of his approach: informative without being dull, entertaining without losing substance, and always focused on the audience.</p>
+        <p>Ben believes the best storytellers are curious about the world around them. Whether he&rsquo;s interviewing someone about an important community issue, narrating a documentary-style video, introducing a live audience, reporting a local story, or sitting behind a microphone for an afternoon broadcast, he approaches each opportunity with the same goal&mdash;to make people feel like they&rsquo;re part of the conversation.</p>
+        <p>His interests extend well beyond the newsroom. He has a particular passion for local history, travel, culture, entertainment, sports, and the people who make communities special. He is especially interested in finding the stories that might otherwise go unnoticed and giving them a larger audience.</p>
+        <p>At the heart of Ben&rsquo;s work is a belief that media can do more than deliver information. It can make people laugh, make them think, introduce them to someone they would never otherwise meet, and make them feel more connected to the world around them.</p>
+        <div class="motto">
+          <p>Whether it&rsquo;s through a microphone, a camera, a narration booth, or a live audience, Ben Brunner&rsquo;s mission is straightforward:</p>
+          <strong>Tell the story. Connect with people. And make it worth listening to.</strong>
+        </div>
+      </div>
     </div>
   </section>
 
