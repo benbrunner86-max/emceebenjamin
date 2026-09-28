@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Ben Brunner | Voiceover, Narration &amp; Live Hosting</title>
+<meta name="description" content="Book Ben Brunner for voiceover, narration, live game show hosting and emcee work.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23FF5A1F'/%3E%3Crect x='8' y='12' width='3' height='8' rx='1.5' fill='%23121016'/%3E%3Crect x='14.5' y='7' width='3' height='18' rx='1.5' fill='%23121016'/%3E%3Crect x='21' y='10' width='3' height='12' rx='1.5' fill='%23121016'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#121016; --panel:#1E1B23; --line:#2E2A35;
+  --paper:#F5F0E8; --soft:#CFC7BC; --muted:#B8B0A6;
+  --accent:#FF5A1F; --error:#FF8A80;
+  --display:Anton,Impact,'Arial Narrow',sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,5.5vw,80px);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--body);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1{font-family:var(--display);font-weight:400;text-transform:uppercase;margin:0;line-height:.95;font-size:clamp(56px,9vw,120px)}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:var(--pad)}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;max-width:1440px}
+.logo{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.5px}
+.back{font-weight:500;font-size:16px}
+.back:hover{color:var(--accent)}
+main{padding-block:clamp(48px,8vw,96px)}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:700;font-size:16px;margin-bottom:20px}
+.kicker::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.intro{color:var(--soft);max-width:620px;margin:24px 0 48px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px;padding:clamp(24px,4vw,40px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+@media (max-width:700px){form{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px}
+.full{grid-column:1/-1}
+label{font-weight:700;font-size:15px}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:17px;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px 16px;width:100%}
+textarea{min-height:150px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#8A8390}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23CFC7BC' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;font:inherit;font-weight:700;font-size:18px;border:0;cursor:pointer;background:var(--accent);color:var(--ink);transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn[disabled]{opacity:.6;cursor:default;transform:none}
+.note{color:var(--muted);font-size:15px}
+.status{grid-column:1/-1;font-weight:500}
+.status.err{color:var(--error)}
+.done{display:none;padding:clamp(28px,5vw,48px);border-radius:24px;background:var(--accent);color:var(--ink)}
+.done h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.95;margin:0 0 16px}
+.done a{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Ben Brunner</a>
+    <a class="back" href="index.html">&larr; Back to site</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="kicker">Bookings</div>
+  <h1>Book now</h1>
+  <p class="intro">Voiceover, narration, live game shows or an emcee for your event. Tell me a little about what you need and I'll get back to you soon.</p>
+
+  <form id="book" novalidate>
+    <div class="field">
+      <label for="name">Your name</label>
+      <input id="name" name="name" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="phone">Phone <span class="opt">(optional)</span></label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel">
+    </div>
+    <div class="field">
+      <label for="type">What are you booking?</label>
+      <select id="type" name="booking_type" required>
+        <option value="">Choose one</option>
+        <option>Voiceover</option>
+        <option>Narration / audiobook</option>
+        <option>Live game show hosting</option>
+        <option>Live emcee / event host</option>
+        <option>Radio / podcast</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="date">Event or deadline date <span class="opt">(optional)</span></label>
+      <input id="date" name="date" type="date">
+    </div>
+    <div class="field">
+      <label for="where">Location <span class="opt">(optional)</span></label>
+      <input id="where" name="location" placeholder="City, venue, or remote">
+    </div>
+    <div class="field full">
+      <label for="msg">Project details</label>
+      <textarea id="msg" name="message" placeholder="Script length, style, audience, budget, anything that helps" required></textarea>
+    </div>
+    <div class="hp" aria-hidden="true"><label for="hp">Leave this empty</label><input id="hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+    <div class="actions full">
+      <button class="btn" type="submit" id="send">Send booking request</button>
+      <span class="note">Or email <a href="mailto:ben.brunner86@gmail.com">ben.brunner86@gmail.com</a></span>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="done" id="done" role="status" tabindex="-1">
+    <h2>Thanks! Request sent.</h2>
+    <p>I'll be in touch soon. <a href="index.html">Back to the site</a></p>
+  </div>
+</main>
+
+<script>
+  (function(){
+    var form = document.getElementById('book');
+    var status = document.getElementById('status');
+    var send = document.getElementById('send');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      status.textContent = '';
+      status.className = 'status';
+      var missing = [].filter.call(form.querySelectorAll('[required]'), function(f){ return !f.value.trim(); });
+      var email = document.getElementById('email');
+      if (missing.length) {
+        status.textContent = 'Please fill in: ' + missing.map(function(f){ return form.querySelector('label[for="' + f.id + '"]').firstChild.textContent.trim(); }).join(', ') + '.';
+        status.className = 'status err';
+        missing[0].focus();
+        return;
+      }
+      var ev = email.value.trim(), at = ev.indexOf('@');
+      if (at < 1 || ev.indexOf('.', at) < at + 2 || ev.indexOf(' ') > -1 || /[.]$/.test(ev)) {
+        status.textContent = 'Please enter a valid email address.';
+        status.className = 'status err';
+        email.focus();
+        return;
+      }
+      var data = {};
+      new FormData(form).forEach(function(v, k){ data[k] = v; });
+      data._subject = 'New booking request: ' + data.booking_type + ' from ' + data.name;
+      data._replyto = data.email;
+      data._template = 'table';
+      send.disabled = true;
+      send.textContent = 'Sending...';
+      fetch('https://formsubmit.co/ajax/ben.brunner86@gmail.com', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(data)
+      }).then(function(r){ return r.json().then(function(j){ return {ok: r.ok, j: j}; }); })
+        .then(function(res){
+          if (!res.ok || String(res.j.success) !== 'true') throw new Error(res.j.message || 'failed');
+          form.style.display = 'none';
+          var done = document.getElementById('done');
+          done.style.display = 'block';
+          done.focus();
+        })
+        .catch(function(){
+          status.innerHTML = 'Sorry, that didn&#39;t send. Please email <a href="mailto:ben.brunner86@gmail.com">ben.brunner86@gmail.com</a> instead.';
+          status.className = 'status err';
+          send.disabled = false;
+          send.textContent = 'Send booking request';
+        });
+    });
+  })();
+</script>
+</body>
+</html>
