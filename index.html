@@ -110,6 +110,12 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .rows li{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:26px 0;border-top:2px solid var(--ink)}
 .rows b{font-family:var(--display);font-weight:400;font-size:clamp(30px,3vw,40px);text-transform:uppercase}
 .rows span{font-weight:500;font-size:16px;color:var(--paper-ink)}
+.shows li{align-items:center}
+.shows li > div:first-child{display:flex;flex-direction:column;gap:6px;min-width:0}
+.shows .links{display:flex;flex-wrap:wrap;gap:10px}
+.shows .links .btn{min-height:44px;padding:0 20px;font-size:15px}
+.btn-outline{border:2px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
 
 /* gallery */
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:300px;gap:20px}
@@ -253,16 +259,24 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     <div class="wrap">
       <div class="intro">
         <div class="tag">Also on the mic</div>
-        <h2>Live<br>hosting</h2>
-        <p>Game show host for Let's Do Entertainment, live emcee, and the afternoon voice of WFHW 90.3 FM.</p>
+        <h2>Live game<br>show hosting</h2>
+        <p>Game show host for Let's Do Entertainment: weekly, live-hosted trivia, Survey Sez... and music bingo in bars and restaurants across the Mid-Atlantic, plus private and corporate events.</p>
         <a class="btn btn-dark" href="#contact">Check my availability</a>
         <a class="yt" href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">Watch me host on YouTube</a>
       </div>
-      <ul class="rows">
-        <li><b>Game shows</b><span>Let's Do Entertainment</span></li>
-        <li><b>Live emcee</b><span>Events, stages and crowds</span></li>
-        <li><b>Radio</b><span>Afternoons on WFHW 90.3 FM</span></li>
-        <li><b>Narration</b><span>Long-form reads on YouTube</span></li>
+      <ul class="rows shows">
+        <li>
+          <div><b>Let's Do Trivia!</b><span>The live weekly trivia game show in restaurants, bars and clubs</span></div>
+          <div class="links"><a class="btn btn-dark" href="https://letsdotrivia.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/letsdotrivia" target="_blank" rel="noopener">Facebook</a></div>
+        </li>
+        <li>
+          <div><b>Survey Sez...</b><span>The family-style feud game show with no wrong answers</span></div>
+          <div class="links"><a class="btn btn-dark" href="https://playsurveysez.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/621629021310957" target="_blank" rel="noopener">Facebook</a></div>
+        </li>
+        <li>
+          <div><b>Play That Funky Bingo</b><span>Music bingo with songs from the 1950s to today</span></div>
+          <div class="links"><a class="btn btn-dark" href="https://playthatfunkybingo.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/playthatfunkybingo" target="_blank" rel="noopener">Facebook</a></div>
+        </li>
       </ul>
     </div>
   </section>
