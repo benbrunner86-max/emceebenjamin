@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ben Brunner | Voice Actor, Narrator &amp; Live Emcee</title>
+<meta name="description" content="Ben Brunner (Emcee Ben Jammin): voice actor, narrator and live emcee. Voiceover for Lore Lockdown, Marvelous Videos and Marvelous LongReads. Afternoon host on WFHW 90.3 FM.">
+<meta property="og:title" content="Ben Brunner | Voice Actor, Narrator &amp; Live Emcee">
+<meta property="og:description" content="Voiceover, narration and live hosting. Book Ben for your next project or event.">
+<meta property="og:image" content="images/headshot.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23FF5A1F'/%3E%3Crect x='8' y='12' width='3' height='8' rx='1.5' fill='%23121016'/%3E%3Crect x='14.5' y='7' width='3' height='18' rx='1.5' fill='%23121016'/%3E%3Crect x='21' y='10' width='3' height='12' rx='1.5' fill='%23121016'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#121016; --panel:#1E1B23; --line:#2E2A35;
+  --paper:#F5F0E8; --soft:#CFC7BC; --muted:#B8B0A6; --paper-ink:#3A353F;
+  --accent:#FF5A1F; --accent-dark:#B83A0B;
+  --display:Anton,Impact,'Arial Narrow',sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,5.5vw,80px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--body);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,iframe{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+h1,h2{font-family:var(--display);font-weight:400;text-transform:uppercase;margin:0;line-height:.95}
+p{margin:0}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--pad)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;font-size:17px;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-line{border:2px solid var(--paper)}
+.btn-line:hover{background:var(--paper);color:var(--ink)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(18,16,22,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.5px}
+nav{display:flex;align-items:center;gap:32px;font-weight:500;font-size:16px}
+nav a:not(.btn):hover{color:var(--accent)}
+nav .btn{min-height:44px;padding:0 22px;font-size:16px}
+@media (max-width:760px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(56px,9vw,110px) clamp(40px,6vw,72px)}
+.hero .kicker{display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:700;font-size:16px;margin-bottom:24px}
+.hero .kicker::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:clamp(64px,11.5vw,168px);letter-spacing:-1px}
+.hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:clamp(40px,6vw,72px)}
+.hero-foot p{max-width:540px;font-size:clamp(18px,1.6vw,21px);color:var(--soft)}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+
+/* waveform */
+.wave{height:120px;display:flex;align-items:center;gap:6px;overflow:hidden}
+.wave span{flex:1 0 8px;max-width:10px;border-radius:6px;background:var(--accent)}
+.wave span:nth-child(7n){background:var(--paper)}
+@media (prefers-reduced-motion:no-preference){
+  .wave span{animation:pulse 1.8s ease-in-out infinite alternate;transform-origin:center}
+}
+@keyframes pulse{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+
+/* featured work */
+.work{padding-top:64px}
+.label{color:var(--accent);font-weight:700;font-size:16px;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;justify-content:space-between;gap:32px;min-height:190px;padding:26px;border-radius:24px;background:var(--panel);border:1px solid var(--line);transition:transform .15s ease,border-color .15s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card.hot{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;font-weight:700;font-size:15px;color:var(--muted)}
+.card.hot .card-top{color:var(--ink)}
+.card strong{display:block;font-family:var(--display);font-weight:400;font-size:32px;line-height:1.05;text-transform:uppercase}
+.card small{display:block;font-size:16px;color:var(--soft);margin-top:6px}
+.card.hot small{color:var(--ink)}
+
+/* sections */
+section.block{padding-block:clamp(72px,9vw,120px)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px}
+.head h2{font-size:clamp(56px,7vw,96px)}
+.head p{color:var(--soft);margin-top:14px}
+
+/* demos */
+.player{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.player iframe{width:100%;height:450px;border:0}
+.credits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:760px){.credits{grid-template-columns:1fr}}
+.credit{padding:24px 26px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.credit strong{display:block;font-family:var(--display);font-weight:400;font-size:30px;text-transform:uppercase;line-height:1.05}
+.credit span{color:var(--soft);font-size:16px}
+
+/* hosting */
+.hosting{background:var(--paper);color:var(--ink)}
+.hosting .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,6vw,80px);align-items:center}
+@media (max-width:900px){.hosting .wrap{grid-template-columns:1fr}}
+.hosting h2{font-size:clamp(56px,7vw,96px)}
+.hosting .intro{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.hosting .intro .tag{color:var(--accent-dark);font-weight:700;font-size:16px}
+.hosting .intro p{font-size:20px;color:var(--paper-ink);max-width:520px}
+.hosting .yt{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.rows{list-style:none;margin:0;padding:0;border-bottom:2px solid var(--ink)}
+.rows li{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:26px 0;border-top:2px solid var(--ink)}
+.rows b{font-family:var(--display);font-weight:400;font-size:clamp(30px,3vw,40px);text-transform:uppercase}
+.rows span{font-weight:500;font-size:16px;color:var(--paper-ink)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:300px;gap:20px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:24px}
+.gallery .tall{grid-row:span 2;object-position:center top}
+.gallery .wide{grid-column:span 2;object-fit:contain;background:#0B1740}
+.gallery .cta{display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:28px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.gallery .cta strong{font-family:var(--display);font-weight:400;font-size:34px;text-transform:uppercase;line-height:1.05}
+.gallery .cta .actions .btn{min-height:46px;padding:0 20px;font-size:16px}
+@media (max-width:900px){
+  .gallery{grid-template-columns:1fr;grid-auto-rows:auto}
+  .gallery .tall{grid-row:auto;aspect-ratio:1/1;height:auto}
+  .gallery .wide{grid-column:auto;aspect-ratio:1258/683;height:auto}
+}
+
+/* contact */
+footer{background:var(--accent);color:var(--ink)}
+footer .wrap{padding-block:clamp(72px,9vw,120px) 48px}
+footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
+.book{display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px;margin-top:36px}
+.book .btn{min-height:60px;font-size:clamp(16px,2vw,20px);word-break:break-all}
+.book span{font-weight:500}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;margin-top:clamp(56px,8vw,100px);padding-top:26px;border-top:2px solid var(--ink);font-weight:500;font-size:16px}
+.foot nav{gap:24px;flex-wrap:wrap}
+.foot nav a{display:inline!important}
+.foot nav a:hover{text-decoration:underline;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Ben Brunner</a>
+    <nav aria-label="Main">
+      <a href="#demos">Demos</a>
+      <a href="#hosting">Hosting</a>
+      <a href="#gallery">Gallery</a>
+      <a class="btn btn-accent" href="#contact">Book me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="kicker">Voice actor, narrator &amp; live emcee</div>
+    <h1>The voice<br>that moves<br>the room.</h1>
+    <div class="hero-foot">
+      <p>Voiceover for Lore Lockdown, Marvelous Videos and Marvelous LongReads on YouTube. Live game show host for Let's Do Entertainment. Afternoon host on WFHW 90.3 FM.</p>
+      <div class="actions">
+        <a class="btn btn-accent" href="#demos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          Hear my demos
+        </a>
+        <a class="btn btn-line" href="#contact">Book me</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="wave" id="wave" aria-hidden="true"></div></div>
+
+  <section class="work wrap" aria-labelledby="work-label">
+    <div class="label" id="work-label">Featured work</div>
+    <div class="cards">
+      <a class="card hot" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">
+        <div class="card-top">SoundCloud <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <div><strong>Voiceover demos</strong><small>Listen to my reels</small></div>
+      </a>
+      <a class="card" href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">
+        <div class="card-top">YouTube <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <div><strong>Hosting videos</strong><small>Emcee Ben Jammin in action</small></div>
+      </a>
+      <a class="card" href="https://www.whcp.org/people/ben-brunner-1" target="_blank" rel="noopener">
+        <div class="card-top">Radio Chesapeake <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <div><strong>Afternoon host</strong><small>WFHW 90.3 FM</small></div>
+      </a>
+      <a class="card" href="https://www.youtube.com/@EmceeBenJammin/community" target="_blank" rel="noopener">
+        <div class="card-top">YouTube community <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <div><strong>Latest updates</strong><small>News, gigs and behind the scenes</small></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="block wrap" id="demos">
+    <div class="head">
+      <div>
+        <h2>Demo reels</h2>
+        <p>Press play below, or browse everything on SoundCloud.</p>
+      </div>
+      <a class="btn btn-line" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">Open SoundCloud</a>
+    </div>
+    <div class="player">
+      <iframe title="Ben Brunner on SoundCloud" loading="lazy" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ben-brunner-703202643&amp;color=%23ff5a1f&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+    </div>
+    <div class="credits">
+      <div class="credit"><strong>Lore Lockdown</strong><span>Voiceover, YouTube</span></div>
+      <div class="credit"><strong>Marvelous Videos</strong><span>Voiceover, YouTube</span></div>
+      <div class="credit"><strong>Marvelous LongReads</strong><span>Narration, YouTube</span></div>
+    </div>
+  </section>
+
+  <section class="block hosting" id="hosting">
+    <div class="wrap">
+      <div class="intro">
+        <div class="tag">Also on the mic</div>
+        <h2>Live<br>hosting</h2>
+        <p>Game show host for Let's Do Entertainment, live emcee, and the afternoon voice of WFHW 90.3 FM.</p>
+        <a class="btn btn-dark" href="#contact">Check my availability</a>
+        <a class="yt" href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">Watch me host on YouTube</a>
+      </div>
+      <ul class="rows">
+        <li><b>Game shows</b><span>Let's Do Entertainment</span></li>
+        <li><b>Live emcee</b><span>Events, stages and crowds</span></li>
+        <li><b>Radio</b><span>Afternoons on WFHW 90.3 FM</span></li>
+        <li><b>Narration</b><span>Long-form reads on YouTube</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block wrap" id="gallery">
+    <div class="head">
+      <h2>In the booth.<br>On the stage.</h2>
+    </div>
+    <div class="gallery">
+      <img class="tall" src="images/headshot.jpg" alt="Ben Brunner in a fedora and plaid shirt, seated in a diner booth" loading="lazy">
+      <div class="cta">
+        <strong>See more on Instagram</strong>
+        <div class="actions"><a class="btn btn-accent" href="https://www.instagram.com/emceebenjammin/" target="_blank" rel="noopener">@emceebenjammin</a></div>
+      </div>
+      <div class="cta">
+        <strong>Watch the videos</strong>
+        <div class="actions"><a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">YouTube channel</a></div>
+      </div>
+      <img class="wide" src="images/top-host.jpg" alt="Ben Brunner's Top Host contest graphic for On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's make<br>some noise.</h2>
+    <div class="book">
+      <a class="btn btn-dark" href="mailto:ben.brunner86@gmail.com?subject=Booking%20inquiry">ben.brunner86@gmail.com</a>
+      <span>Voiceover bookings, events and agency inquiries</span>
+    </div>
+    <div class="foot">
+      <span>© <span id="year">2026</span> Ben Brunner, Emcee Ben Jammin</span>
+      <nav aria-label="Social">
+        <a href="https://www.instagram.com/emceebenjammin/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/benjamin-brunner-8b98b9132/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="https://www.whcp.org/people/ben-brunner-1" target="_blank" rel="noopener">WHCP</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Build the waveform bars
+  (function(){
+    var w = document.getElementById('wave');
+    for (var i = 0; i < 90; i++) {
+      var s = document.createElement('span');
+      var h = Math.round(14 + Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)) * 92 + (i % 3) * 4);
+      s.style.height = h + 'px';
+      s.style.animationDelay = (-(i % 12) * 0.15) + 's';
+      w.appendChild(s);
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
