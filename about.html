@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ben Brunner | Voice Actor, Narrator &amp; Live Emcee</title>
-<meta name="description" content="Ben Brunner (Emcee Ben Jammin): voice actor, narrator and live emcee. Voiceover for Lore Lockdown, Marvelous Videos and Marvelous LongReads. Former afternoon host on WFHW 90.3 FM.">
-<meta property="og:title" content="Ben Brunner | Voice Actor, Narrator &amp; Live Emcee">
+<title>About Ben Brunner | Journalist, Narrator &amp; Live Host</title>
+<meta name="description" content="About Ben Brunner: journalist, broadcaster, narrator, host and storyteller from Maryland's Eastern Shore.">
+<meta property="og:title" content="About Ben Brunner">
 <meta property="og:description" content="Voiceover, narration and live hosting. Book Ben for your next project or event.">
 <meta property="og:image" content="images/headshot.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23FF5A1F'/%3E%3Crect x='8' y='12' width='3' height='8' rx='1.5' fill='%23121016'/%3E%3Crect x='14.5' y='7' width='3' height='18' rx='1.5' fill='%23121016'/%3E%3Crect x='21' y='10' width='3' height='12' rx='1.5' fill='%23121016'/%3E%3C/svg%3E">
@@ -131,6 +131,23 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .btn-outline{border:2px solid var(--ink);color:var(--ink)}
 .btn-outline:hover{background:var(--ink);color:var(--paper)}
 
+/* about */
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.about .wrap{grid-template-columns:1fr}}
+.about .side{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.about figure{margin:12px 0 0;width:100%}
+.about figure img{width:100%;height:auto;border-radius:24px;border:1px solid var(--line)}
+.about figcaption{margin-top:10px;font-size:15px;color:var(--muted)}
+.navlinks a[aria-current]{color:var(--accent)}
+.about .side .label{margin-bottom:0}
+.about h1,.about h2{font-size:clamp(56px,7vw,96px)}
+.about .lead{font-size:clamp(20px,1.9vw,24px);line-height:1.45;color:var(--paper)}
+.about .body{display:flex;flex-direction:column;gap:22px;max-width:680px;color:var(--soft)}
+.about .body .turn{font-weight:700;color:var(--paper)}
+.about .motto{margin-top:18px;padding-top:28px;border-top:2px solid var(--line)}
+.about .motto p{color:var(--soft)}
+.about .motto strong{display:block;margin-top:14px;font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1.02;text-transform:uppercase;color:var(--accent)}
+
 /* gallery */
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:300px;gap:20px}
 .gallery img{width:100%;height:100%;object-fit:cover;border-radius:24px}
@@ -197,16 +214,16 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top">Ben Brunner</a>
+    <a class="logo" href="index.html">Ben Brunner</a>
     <nav aria-label="Main">
       <div class="navlinks" id="navlinks">
-        <a href="#videos">Videos</a>
-        <a href="#demos">Demos</a>
-        <a href="#hosting">Hosting</a>
-        <a href="about.html">About</a>
-        <a href="#gallery">Gallery</a>
+        <a href="index.html#videos">Videos</a>
+        <a href="index.html#demos">Demos</a>
+        <a href="index.html#hosting">Hosting</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="index.html#gallery">Gallery</a>
       </div>
-      <a class="btn btn-accent" href="#contact">Book me</a>
+      <a class="btn btn-accent" href="book.html">Book me</a>
       <button class="menu-btn" type="button" aria-controls="navlinks" aria-expanded="false" aria-label="Open menu">
         <svg class="bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -216,131 +233,36 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 </header>
 
 <main id="top">
-  <section class="hero wrap">
-    <div class="kicker">Voice actor, narrator &amp; live emcee</div>
-    <h1>The voice<br>that moves<br>the room.</h1>
-    <div class="hero-foot">
-      <p>Voiceover for Lore Lockdown, Marvelous Videos and Marvelous LongReads on YouTube. Live game show host for Let's Do Entertainment. Former afternoon host on WFHW 90.3 FM.</p>
-      <div class="actions">
-        <a class="btn btn-accent" href="#demos">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
-          Hear my demos
-        </a>
-        <a class="btn btn-line" href="#contact">Book me</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap"><div class="wave" id="wave" aria-hidden="true"></div></div>
-
-  <section class="latest wrap" id="videos" aria-labelledby="videos-title">
-    <div class="head">
-      <div>
-        <h2 id="videos-title">Latest voiceover work</h2>
-        <p>Fresh narration for Lore Lockdown and Marvelous LongReads. Press play.</p>
-      </div>
-      <a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin/community" target="_blank" rel="noopener">See all on YouTube</a>
-    </div>
-    <div class="vfeature" id="vfeature"></div>
-    <div class="vgrid" id="vgrid"></div>
-  </section>
-
-  <section class="vote wrap" id="vote" aria-labelledby="vote-title">
-    <div class="vote-card">
-      <div class="vote-text">
-        <div class="tag">Top Host 2026</div>
-        <h2 id="vote-title">Vote for me</h2>
-        <p>Please vote for me when voting starts! I will post the link when it's live, thank you so much! The QR code in my headshot below should direct you to the website's countdown.</p>
-        <a class="btn btn-dark" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener">Visit my Top Host page</a>
-      </div>
-      <img src="images/top-host.jpg" alt="Top Host graphic: Vote for me, with Ben's headshot and a QR code to his Top Host page. On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
-    </div>
-  </section>
-
-  <section class="work wrap" aria-labelledby="work-label">
-    <div class="label" id="work-label">Featured work</div>
-    <div class="cards">
-      <a class="card hot" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">
-        <div class="card-top">SoundCloud <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <div><strong>Voiceover demos</strong><small>Listen to my reels</small></div>
-      </a>
-      <a class="card" href="https://www.youtube.com/@EmceeBenJammin/shorts" target="_blank" rel="noopener">
-        <div class="card-top">YouTube <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <div><strong>Hosting videos</strong><small>Emcee Ben Jammin in action</small></div>
-      </a>
-      <a class="card" href="https://www.whcp.org/people/ben-brunner-1" target="_blank" rel="noopener">
-        <div class="card-top">Radio Chesapeake <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <div><strong>Former afternoon host</strong><small>WFHW 90.3 FM</small></div>
-      </a>
-      <a class="card" href="https://www.youtube.com/@EmceeBenJammin/community" target="_blank" rel="noopener">
-        <div class="card-top">YouTube community <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <div><strong>Latest updates</strong><small>News, gigs and behind the scenes</small></div>
-      </a>
-    </div>
-  </section>
-
-  <section class="block wrap" id="demos">
-    <div class="head">
-      <div>
-        <h2>Demo reels</h2>
-        <p>Press play below, or browse everything on SoundCloud.</p>
-      </div>
-      <a class="btn btn-line" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">Open SoundCloud</a>
-    </div>
-    <div class="player">
-      <iframe title="Ben Brunner on SoundCloud" loading="lazy" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ben-brunner-703202643&amp;color=%23ff5a1f&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
-    </div>
-    <div class="credits">
-      <div class="credit"><strong>Lore Lockdown</strong><span>Voiceover, YouTube</span></div>
-      <div class="credit"><strong>Marvelous Videos</strong><span>Voiceover, YouTube</span></div>
-      <div class="credit"><strong>Marvelous LongReads</strong><span>Narration, YouTube</span></div>
-    </div>
-  </section>
-
-  <section class="block hosting" id="hosting">
+  <section class="block about" id="about" aria-labelledby="about-title">
     <div class="wrap">
-      <div class="intro">
-        <div class="tag">Also on the mic</div>
-        <h2>Live game<br>show hosting</h2>
-        <p>Game show host for Let's Do Entertainment: weekly, live-hosted trivia, Survey Sez... and music bingo in bars and restaurants across the Mid-Atlantic, plus private and corporate events.</p>
-        <a class="btn btn-dark" href="#contact">Check my availability</a>
-        <a class="yt" href="https://www.instagram.com/emceebenjammin/" target="_blank" rel="noopener">Watch me host on Instagram</a>
+      <div class="side">
+        <div class="label">About me</div>
+        <h1 id="about-title">Ben<br>Brunner</h1>
+        <p class="lead">Ben Brunner is a journalist, broadcaster, narrator, host, and storyteller whose career has been driven by a love of people, conversation, and the stories that bring communities to life.</p>
+        <a class="btn btn-accent" href="book.html">Work with me</a>
+        <figure>
+          <img src="images/sea%20of%20people.jpg" width="2048" height="1536" alt="Ben hosting a packed live trivia night, seen from behind his mic, mixer and laptop, looking out over a full restaurant">
+          <figcaption>Hosting a packed trivia night, July 2026</figcaption>
+        </figure>
       </div>
-      <ul class="rows shows">
-        <li>
-          <div><b>Let's Do Trivia!</b><span>The live weekly trivia game show in restaurants, bars and clubs</span></div>
-          <div class="links"><a class="btn btn-dark" href="https://letsdotrivia.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/letsdotrivia" target="_blank" rel="noopener">Facebook</a></div>
-        </li>
-        <li>
-          <div><b>Survey Sez...</b><span>The family-style feud game show with no wrong answers</span></div>
-          <div class="links"><a class="btn btn-dark" href="https://playsurveysez.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/621629021310957" target="_blank" rel="noopener">Facebook</a></div>
-        </li>
-        <li>
-          <div><b>Play That Funky Bingo</b><span>Music bingo with songs from the 1950s to today</span></div>
-          <div class="links"><a class="btn btn-dark" href="https://playthatfunkybingo.com" target="_blank" rel="noopener">Website</a><a class="btn btn-outline" href="https://www.facebook.com/playthatfunkybingo" target="_blank" rel="noopener">Facebook</a></div>
-        </li>
-      </ul>
+      <div class="body">
+        <p>A graduate of Salisbury University with a degree in Broadcast Journalism, Ben has spent his career behind microphones, in front of cameras, on stages, and wherever there is a story worth telling. His work has taken him from radio studios to live events, from community journalism to digital entertainment, giving him a unique perspective on what it takes to capture an audience&rsquo;s attention&mdash;and keep it.</p>
+        <p>Ben has built much of his broadcasting career on Maryland&rsquo;s Eastern Shore, where he has worked in public radio as an on-air host, reporter, editor, and contributor. He has hosted All Things Considered, produced and edited local newstalk programming, interviewed community leaders and newsmakers, and covered the people, events, challenges, and successes that make the Eastern Shore unique.</p>
+        <p>His experience also extends into the world of digital storytelling. Ben has spent a year working as a narrator for the YouTube channels Marvelous Videos and Lore Lockdown, lending his voice to long-form documentary-style content. The work has given him experience bringing scripted stories to life through narration, using pacing, tone, emphasis, and delivery to maintain an audience&rsquo;s attention throughout a story.</p>
+        <p>Narration has become a natural extension of Ben&rsquo;s broadcasting background. Unlike traditional radio, where the personality of the host can be central to the presentation, documentary narration requires the voice to serve the story&mdash;knowing when to build tension, when to let a moment breathe, and when to allow the information itself to take center stage.</p>
+        <p class="turn">But broadcasting for Ben has never been limited to reading the news.</p>
+        <p>For nearly a decade, he has also worked as a live game-show host and entertainer, developing the ability to connect with audiences in real time, think on his feet, improvise, and turn an ordinary event into a memorable experience. That combination of journalism, narration, and live entertainment has become a defining part of his approach: informative without being dull, entertaining without losing substance, and always focused on the audience.</p>
+        <p>Ben believes the best storytellers are curious about the world around them. Whether he&rsquo;s interviewing someone about an important community issue, narrating a documentary-style video, introducing a live audience, reporting a local story, or sitting behind a microphone for an afternoon broadcast, he approaches each opportunity with the same goal&mdash;to make people feel like they&rsquo;re part of the conversation.</p>
+        <p>His interests extend well beyond the newsroom. He has a particular passion for local history, travel, culture, entertainment, sports, and the people who make communities special. He is especially interested in finding the stories that might otherwise go unnoticed and giving them a larger audience.</p>
+        <p>At the heart of Ben&rsquo;s work is a belief that media can do more than deliver information. It can make people laugh, make them think, introduce them to someone they would never otherwise meet, and make them feel more connected to the world around them.</p>
+        <div class="motto">
+          <p>Whether it&rsquo;s through a microphone, a camera, a narration booth, or a live audience, Ben Brunner&rsquo;s mission is straightforward:</p>
+          <strong>Tell the story. Connect with people. And make it worth listening to.</strong>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="block wrap" id="gallery">
-    <div class="head">
-      <h2>In the booth.<br>On the stage.</h2>
-    </div>
-    <div class="gallery">
-      <img class="tall" src="images/headshot.jpg" alt="Ben Brunner in a fedora and plaid shirt, seated in a diner booth" loading="lazy">
-      <div class="cta">
-        <strong>See more on Instagram</strong>
-        <div class="actions"><a class="btn btn-accent" href="https://www.instagram.com/emceebenjammin/" target="_blank" rel="noopener">@emceebenjammin</a></div>
-      </div>
-      <div class="cta">
-        <strong>Watch the videos</strong>
-        <div class="actions"><a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">YouTube channel</a></div>
-      </div>
-      <img class="wide" src="images/top-host.jpg" alt="Ben Brunner's Top Host contest graphic for On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
-    </div>
-  </section>
 </main>
 
 <footer id="contact">
@@ -369,18 +291,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 </footer>
 
 <script>
-  // Build the waveform bars
-  (function(){
-    var w = document.getElementById('wave');
-    for (var i = 0; i < 90; i++) {
-      var s = document.createElement('span');
-      var h = Math.round(14 + Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)) * 92 + (i % 3) * 4);
-      s.style.height = h + 'px';
-      s.style.animationDelay = (-(i % 12) * 0.15) + 's';
-      w.appendChild(s);
-    }
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
+  document.getElementById('year').textContent = new Date().getFullYear();
   // Phone menu
   (function(){
     var header = document.querySelector('header');
@@ -394,87 +305,6 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     header.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && header.classList.contains('open')) { setOpen(false); btn.focus(); } });
     document.addEventListener('click', function(e){ if (!header.contains(e.target)) setOpen(false); });
-  })();
-</script>
-<script>
-  // Latest videos from the YouTube community page.
-  // To add a new one: put a new line at the TOP of this list with the video ID (the part after watch?v=), title and channel.
-  var VIDEOS = [
-    ['lq5n_0QEzXE', "Ginger Snaps' Werewolf Entity Anatomy Explained", 'Lore Lockdown'],
-    ['bvInb1tGALQ', 'How Did VR Troopers (1994-1996) Really End?', 'Lore Lockdown'],
-    ['UCeSg5VEdxM', '8 Most Memorable Captain Planet Villains', 'Lore Lockdown'],
-    ['AgmWF1PJ_Pw', 'How Did Danny Phantom (2003-2007) Really End?', 'Lore Lockdown'],
-    ['1_qYWkGxq28', 'How Did The Twilight Zone (1985) Really End?', 'Lore Lockdown'],
-    ['DS0iMB20W_w', "Entire Green Lantern Corps Comic Book Saga - The Ultimate and Complete Video On Oa's Finest", 'Marvelous LongReads'],
-    ['WQsGyNfjJao', "Knull's Symbiotic Anatomy Explained", 'Lore Lockdown'],
-    ['HR1IBM45xnI', "What's The Final Fate Of Ash Williams In The End Of The Evil Dead Franchise?", 'Lore Lockdown'],
-    ['I0P654eF9h4', "Stephen King's Dark Tower Anatomy Explained", 'Lore Lockdown'],
-    ['gOzPRRFJhmY', "Roy's Anatomy Explained - MTV's The Head", 'Lore Lockdown'],
-    ['IJk5AzW-k0k', 'How Did Dynomutt, Dog Wonder (1976) Really End?', 'Lore Lockdown'],
-    ['MlPHMzp7b68', 'How Did Legends of the Hidden Temple (Nickelodeon) End?', 'Lore Lockdown'],
-    ['YbMpFMU7Lm8', "T-1000's Anatomy Explained", 'Lore Lockdown'],
-    ['ctCDN-lPgi8', "Captain Planet's Anatomy Explained", 'Lore Lockdown'],
-    ['2fh2Xl7YuQg', '13 Physiological Facts About Rorschach', 'Lore Lockdown']
-  ];
-  var GRID_COUNT = 8; // how many smaller videos to show under the featured one
-
-  (function(){
-    var PLAY = '<span class="pbtn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
-    var feat = document.getElementById('vfeature');
-    var grid = document.getElementById('vgrid');
-    function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
-    function thumbUrl(id, size){ return 'https://i.ytimg.com/vi/' + id + '/' + size + '.jpg'; }
-    function cover(v, big, onPlay){
-      var b = document.createElement('button');
-      b.className = 'vplay';
-      b.type = 'button';
-      b.setAttribute('aria-label', 'Play: ' + v[1]);
-      b.innerHTML = '<img src="' + thumbUrl(v[0], big ? 'maxresdefault' : 'hqdefault') + '" alt="" loading="lazy">' + PLAY;
-      var im = b.querySelector('img');
-      im.addEventListener('load', function(){ if (im.naturalWidth < 200) im.src = thumbUrl(v[0], 'hqdefault'); });
-      im.addEventListener('error', function(){ im.src = thumbUrl(v[0], 'hqdefault'); }, {once: true});
-      b.addEventListener('click', onPlay);
-      return b;
-    }
-    // Show a video in the main (big) player. autoplay = start playing right away.
-    function showMain(v, autoplay){
-      feat.innerHTML = '';
-      var box;
-      if (autoplay) {
-        box = document.createElement('div');
-        box.className = 'vplay';
-        var f = document.createElement('iframe');
-        f.src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?autoplay=1&rel=0';
-        f.title = v[1];
-        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        f.allowFullscreen = true;
-        box.appendChild(f);
-      } else {
-        box = cover(v, true, function(){ showMain(v, true); });
-      }
-      feat.appendChild(box);
-      var meta = document.createElement('div');
-      meta.className = 'vmeta';
-      meta.innerHTML = '<div><div class="tag">' + (v === VIDEOS[0] ? 'Newest release' : 'Now playing') + '</div><strong>' + esc(v[1]) + '</strong></div>' +
-        '<div><span>Narrated by Ben Brunner for ' + esc(v[2]) + '</span></div>' +
-        '<a class="btn btn-accent" href="https://www.youtube.com/watch?v=' + v[0] + '" target="_blank" rel="noopener">Watch on YouTube</a>';
-      feat.appendChild(meta);
-      [].forEach.call(grid.children, function(c){ c.classList.toggle('active', c.getAttribute('data-id') === v[0]); });
-    }
-    VIDEOS.slice(1, 1 + GRID_COUNT).forEach(function(v){
-      var c = document.createElement('div');
-      c.className = 'vcard';
-      c.setAttribute('data-id', v[0]);
-      c.appendChild(cover(v, false, function(){
-        showMain(v, true);
-        window.scrollTo({top: feat.getBoundingClientRect().top + window.pageYOffset - 96});
-      }));
-      var p = document.createElement('p');
-      p.innerHTML = esc(v[1]) + '<small>' + esc(v[2]) + '</small>';
-      c.appendChild(p);
-      grid.appendChild(c);
-    });
-    showMain(VIDEOS[0], false);
   })();
 </script>
 </body>
