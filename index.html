@@ -147,6 +147,8 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .vcard .vplay .pbtn{width:48px;height:48px}
 .vcard p{margin-top:12px;font-weight:500;font-size:16px;line-height:1.35}
 .vcard small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.vcard.active .vplay{outline:3px solid var(--accent);outline-offset:3px}
+.vcard.active p{color:var(--accent)}
 
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
@@ -342,47 +344,61 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 
   (function(){
     var PLAY = '<span class="pbtn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+    var feat = document.getElementById('vfeature');
+    var grid = document.getElementById('vgrid');
     function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
-    function player(v, big){
+    function thumbUrl(id, size){ return 'https://i.ytimg.com/vi/' + id + '/' + size + '.jpg'; }
+    function cover(v, big, onPlay){
       var b = document.createElement('button');
       b.className = 'vplay';
       b.type = 'button';
       b.setAttribute('aria-label', 'Play: ' + v[1]);
-      b.innerHTML = '<img src="https://i.ytimg.com/vi/' + v[0] + '/' + (big ? 'maxresdefault' : 'hqdefault') + '.jpg" alt="" loading="lazy">' + PLAY;
+      b.innerHTML = '<img src="' + thumbUrl(v[0], big ? 'maxresdefault' : 'hqdefault') + '" alt="" loading="lazy">' + PLAY;
       var im = b.querySelector('img');
-      im.addEventListener('load', function(){ if (im.naturalWidth < 200) im.src = 'https://i.ytimg.com/vi/' + v[0] + '/hqdefault.jpg'; });
-      im.addEventListener('error', function(){ im.src = 'https://i.ytimg.com/vi/' + v[0] + '/hqdefault.jpg'; }, {once: true});
-      b.addEventListener('click', function(){
+      im.addEventListener('load', function(){ if (im.naturalWidth < 200) im.src = thumbUrl(v[0], 'hqdefault'); });
+      im.addEventListener('error', function(){ im.src = thumbUrl(v[0], 'hqdefault'); }, {once: true});
+      b.addEventListener('click', onPlay);
+      return b;
+    }
+    // Show a video in the main (big) player. autoplay = start playing right away.
+    function showMain(v, autoplay){
+      feat.innerHTML = '';
+      var box;
+      if (autoplay) {
+        box = document.createElement('div');
+        box.className = 'vplay';
         var f = document.createElement('iframe');
         f.src = 'https://www.youtube-nocookie.com/embed/' + v[0] + '?autoplay=1&rel=0';
         f.title = v[1];
         f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
         f.allowFullscreen = true;
-        b.innerHTML = '';
-        b.appendChild(f);
-        b.style.cursor = 'default';
-      }, {once: true});
-      return b;
+        box.appendChild(f);
+      } else {
+        box = cover(v, true, function(){ showMain(v, true); });
+      }
+      feat.appendChild(box);
+      var meta = document.createElement('div');
+      meta.className = 'vmeta';
+      meta.innerHTML = '<div><div class="tag">' + (v === VIDEOS[0] ? 'Newest release' : 'Now playing') + '</div><strong>' + esc(v[1]) + '</strong></div>' +
+        '<div><span>Narrated by Ben Brunner for ' + esc(v[2]) + '</span></div>' +
+        '<a class="btn btn-accent" href="https://www.youtube.com/watch?v=' + v[0] + '" target="_blank" rel="noopener">Watch on YouTube</a>';
+      feat.appendChild(meta);
+      [].forEach.call(grid.children, function(c){ c.classList.toggle('active', c.getAttribute('data-id') === v[0]); });
     }
-    var first = VIDEOS[0];
-    var feat = document.getElementById('vfeature');
-    feat.appendChild(player(first, true));
-    var meta = document.createElement('div');
-    meta.className = 'vmeta';
-    meta.innerHTML = '<div><div class="tag">Newest release</div><strong>' + esc(first[1]) + '</strong></div>' +
-      '<div><span>Narrated by Ben Brunner for ' + esc(first[2]) + '</span></div>' +
-      '<a class="btn btn-accent" href="https://www.youtube.com/watch?v=' + first[0] + '" target="_blank" rel="noopener">Watch on YouTube</a>';
-    feat.appendChild(meta);
-    var grid = document.getElementById('vgrid');
     VIDEOS.slice(1, 1 + GRID_COUNT).forEach(function(v){
       var c = document.createElement('div');
       c.className = 'vcard';
-      c.appendChild(player(v, false));
+      c.setAttribute('data-id', v[0]);
+      c.appendChild(cover(v, false, function(){
+        showMain(v, true);
+        window.scrollTo({top: feat.getBoundingClientRect().top + window.pageYOffset - 96});
+      }));
       var p = document.createElement('p');
       p.innerHTML = esc(v[1]) + '<small>' + esc(v[2]) + '</small>';
       c.appendChild(p);
       grid.appendChild(c);
     });
+    showMain(VIDEOS[0], false);
   })();
 </script>
 </body>
