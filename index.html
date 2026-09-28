@@ -47,7 +47,21 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 nav{display:flex;align-items:center;gap:32px;font-weight:500;font-size:16px}
 nav a:not(.btn):hover{color:var(--accent)}
 nav .btn{min-height:44px;padding:0 22px;font-size:16px}
-@media (max-width:760px){nav a:not(.btn){display:none}}
+.navlinks{display:flex;align-items:center;gap:32px}
+.menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:2px solid var(--paper);border-radius:999px;background:none;color:var(--paper);cursor:pointer}
+.menu-btn .x{display:none}
+header.open .menu-btn .bars{display:none}
+header.open .menu-btn .x{display:block}
+@media (max-width:760px){
+  nav{gap:10px}
+  .logo{font-size:22px;white-space:nowrap}
+  nav .btn{padding:0 16px;white-space:nowrap}
+  .menu-btn{display:inline-flex}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:4px var(--pad) 20px;background:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.45)}
+  header.open .navlinks{display:flex}
+  .navlinks a{padding:16px 0;font-size:20px;border-bottom:1px solid var(--line)}
+  .navlinks a:last-child{border-bottom:0}
+}
 
 /* hero */
 .hero{padding-block:clamp(56px,9vw,110px) clamp(40px,6vw,72px)}
@@ -199,12 +213,18 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   <div class="wrap">
     <a class="logo" href="#top">Ben Brunner</a>
     <nav aria-label="Main">
-      <a href="#videos">Videos</a>
-      <a href="#demos">Demos</a>
-      <a href="#hosting">Hosting</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
+      <div class="navlinks" id="navlinks">
+        <a href="#videos">Videos</a>
+        <a href="#demos">Demos</a>
+        <a href="#hosting">Hosting</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+      </div>
       <a class="btn btn-accent" href="#contact">Book me</a>
+      <button class="menu-btn" type="button" aria-controls="navlinks" aria-expanded="false" aria-label="Open menu">
+        <svg class="bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
     </nav>
   </div>
 </header>
@@ -400,6 +420,20 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       w.appendChild(s);
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+  // Phone menu
+  (function(){
+    var header = document.querySelector('header');
+    var btn = header.querySelector('.menu-btn');
+    function setOpen(open){
+      header.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    btn.addEventListener('click', function(){ setOpen(!header.classList.contains('open')); });
+    header.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && header.classList.contains('open')) { setOpen(false); btn.focus(); } });
+    document.addEventListener('click', function(e){ if (!header.contains(e.target)) setOpen(false); });
   })();
 </script>
 <script>
