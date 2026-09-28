@@ -156,6 +156,15 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .vcard.active .vplay{outline:3px solid var(--accent);outline-offset:3px}
 .vcard.active p{color:var(--accent)}
 
+/* vote */
+.vote{padding-bottom:clamp(40px,6vw,72px)}
+.vote-card{display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);padding:clamp(24px,4vw,48px);border-radius:24px;background:var(--accent);color:var(--ink)}
+.vote-text{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:760px}
+.vote .tag{font-weight:700;font-size:16px}
+.vote h2{font-size:clamp(56px,7vw,96px)}
+.vote p{font-size:clamp(18px,1.6vw,21px);font-weight:500}
+.vote img{width:100%;height:auto;border-radius:18px;background:#0B1740}
+
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
 footer .wrap{padding-block:clamp(72px,9vw,120px) 48px}
@@ -212,6 +221,18 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     </div>
     <div class="vfeature" id="vfeature"></div>
     <div class="vgrid" id="vgrid"></div>
+  </section>
+
+  <section class="vote wrap" id="vote" aria-labelledby="vote-title">
+    <div class="vote-card">
+      <div class="vote-text">
+        <div class="tag">Top Host 2026</div>
+        <h2 id="vote-title">Vote for me</h2>
+        <p>Please vote for me when voting starts! I will post the link when it's live, thank you so much! The QR code in my headshot below should direct you to the website's countdown.</p>
+        <a class="btn btn-dark" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener">Visit my Top Host page</a>
+      </div>
+      <img src="images/top-host.jpg" alt="Top Host graphic: Vote for me, with Ben's headshot and a QR code to his Top Host page. On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
+    </div>
   </section>
 
   <section class="work wrap" aria-labelledby="work-label">
