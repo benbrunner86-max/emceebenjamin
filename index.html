@@ -178,6 +178,17 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .vote h2{font-size:clamp(56px,7vw,96px)}
 .vote p{font-size:clamp(18px,1.6vw,21px);font-weight:500}
 .vote img{width:100%;height:auto;border-radius:18px;background:#0B1740}
+.exclusive{padding-bottom:clamp(40px,6vw,72px)}
+.excl-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);align-items:center;gap:clamp(24px,4vw,56px);padding:clamp(24px,4vw,48px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.excl-text{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.exclusive .tag{color:var(--accent);font-weight:700;font-size:16px}
+.exclusive h2{font-size:clamp(72px,10vw,144px);font-weight:400}
+.exclusive p{margin:0;max-width:560px;font-size:clamp(19px,1.8vw,24px);font-weight:500;color:var(--soft)}
+.exclusive p em{font-style:normal;color:var(--paper);font-weight:700}
+.excl-cover{display:block;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45);transition:transform .15s ease}
+.excl-cover:hover{transform:translateY(-3px)}
+.excl-cover img{display:block;width:100%;height:auto}
+@media (max-width:760px){.excl-card{grid-template-columns:1fr}.excl-cover{max-width:340px}}
 
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
@@ -254,6 +265,20 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
         <a class="btn btn-dark" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener">Visit my Top Host page</a>
       </div>
       <img src="images/top-host.jpg" alt="Top Host graphic: Vote for me, with Ben's headshot and a QR code to his Top Host page. On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
+    </div>
+  </section>
+
+  <section class="exclusive wrap" id="exclusive" aria-labelledby="exclusive-title">
+    <div class="excl-card">
+      <div class="excl-text">
+        <div class="tag">Fate Squared &middot; Chapter 1</div>
+        <h2 id="exclusive-title">Exclusive</h2>
+        <p>An exclusive reading of George Trombley's sensational new novel, <em>"Fate Squared"</em>, available October 29th!</p>
+        <a class="btn btn-accent" href="https://soundcloud.com/ben-brunner-703202643/fate-squared-chapter-1-audio?si=39554e92d58249bb8b1b9f7deed803cd&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing" target="_blank" rel="noopener">Listen to Chapter 1 on SoundCloud</a>
+      </div>
+      <a class="excl-cover" href="https://soundcloud.com/ben-brunner-703202643/fate-squared-chapter-1-audio?si=39554e92d58249bb8b1b9f7deed803cd&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing" target="_blank" rel="noopener" aria-label="Listen to the exclusive Fate Squared Chapter 1 reading on SoundCloud">
+        <img src="images/fate-squared.webp" alt="Fate Squared, a novel by George Trombley: book cover" width="600" height="939" loading="lazy">
+      </a>
     </div>
   </section>
 
