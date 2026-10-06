@@ -103,7 +103,7 @@ nav a[aria-current="page"]{color:var(--accent)}
 .schedule .now{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;background:var(--accent);color:var(--ink);font-size:13px;font-weight:700;vertical-align:2px}
 
 /* trivia-night photo behind the whole page, darkened so text stays readable */
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,16,22,.72) 0%,rgba(18,16,22,.86) 55%,rgba(18,16,22,.94) 100%),url("images/sea%20of%20people.jpg") center 35%/cover no-repeat}
+body::before{content:"";position:fixed;inset:-40px;z-index:-1;filter:blur(7px);background:linear-gradient(180deg,rgba(18,16,22,.72) 0%,rgba(18,16,22,.86) 55%,rgba(18,16,22,.94) 100%),url("images/sea%20of%20people.jpg") center 35%/cover no-repeat}
 
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
