@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live | Ben Brunner</title>
+<meta name="description" content="Watch Ben Brunner (Emcee Ben Jammin) live on Facebook: livestreams, trivia nights and behind-the-scenes from the booth.">
+<meta property="og:title" content="Live | Ben Brunner">
+<meta property="og:description" content="Catch Ben Brunner's livestreams from his Facebook Page.">
+<meta property="og:image" content="images/headshot.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23FF5A1F'/%3E%3Crect x='8' y='12' width='3' height='8' rx='1.5' fill='%23121016'/%3E%3Crect x='14.5' y='7' width='3' height='18' rx='1.5' fill='%23121016'/%3E%3Crect x='21' y='10' width='3' height='12' rx='1.5' fill='%23121016'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#121016; --panel:#1E1B23; --line:#2E2A35;
+  --paper:#F5F0E8; --soft:#CFC7BC; --muted:#B8B0A6; --paper-ink:#3A353F;
+  --accent:#FF5A1F; --accent-dark:#B83A0B;
+  --display:Anton,Impact,'Arial Narrow',sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,5.5vw,80px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--body);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,iframe{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+h1,h2{font-family:var(--display);font-weight:400;text-transform:uppercase;margin:0;line-height:.95}
+p{margin:0}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--pad)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;font-size:17px;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-line{border:2px solid var(--paper)}
+.btn-line:hover{background:var(--paper);color:var(--ink)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(18,16,22,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.5px}
+nav{display:flex;align-items:center;gap:32px;font-weight:500;font-size:16px}
+nav a:not(.btn):hover{color:var(--accent)}
+nav .btn{min-height:44px;padding:0 22px;font-size:16px}
+.navlinks{display:flex;align-items:center;gap:32px}
+.menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:2px solid var(--paper);border-radius:999px;background:none;color:var(--paper);cursor:pointer}
+.menu-btn .x{display:none}
+header.open .menu-btn .bars{display:none}
+header.open .menu-btn .x{display:block}
+@media (max-width:760px){
+  nav{gap:10px}
+  .logo{font-size:22px;white-space:nowrap}
+  nav .btn{padding:0 16px;white-space:nowrap}
+  .menu-btn{display:inline-flex}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:4px var(--pad) 20px;background:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.45)}
+  header.open .navlinks{display:flex}
+  .navlinks a{padding:16px 0;font-size:20px;border-bottom:1px solid var(--line)}
+  .navlinks a:last-child{border-bottom:0}
+}
+
+/* live page */
+nav a[aria-current="page"]{color:var(--accent)}
+.live-hero{padding-block:clamp(48px,7vw,96px) clamp(32px,4vw,48px)}
+.onair{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-weight:700;font-size:16px;margin-bottom:22px}
+.onair::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,90,31,.6)}
+@media (prefers-reduced-motion:no-preference){.onair::before{animation:beacon 1.6s ease-out infinite}}
+@keyframes beacon{to{box-shadow:0 0 0 14px rgba(255,90,31,0)}}
+.live-hero h1{font-size:clamp(88px,15vw,200px);letter-spacing:-1px}
+.live-hero p{max-width:620px;margin-top:26px;font-size:clamp(18px,1.6vw,21px);color:var(--soft)}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.live-hero .actions{margin-top:32px}
+.live-grid{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:20px;align-items:start;padding-bottom:clamp(72px,9vw,120px)}
+@media (max-width:900px){.live-grid{grid-template-columns:1fr}}
+.feed{padding:clamp(12px,2vw,24px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.feed-box{width:100%;max-width:500px;margin:0 auto;min-height:300px;border-radius:12px;overflow:hidden;background:#fff}
+.feed-box iframe{display:block;border:0;width:100%;height:800px}
+.tips{display:flex;flex-direction:column;gap:20px}
+.tip{padding:26px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
+.tip strong{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05;text-transform:uppercase;margin-bottom:10px}
+.tip p{color:var(--soft);font-size:17px}
+.tip a.inline{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.tip.hot{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.tip.hot p{color:var(--ink)}
+.tip.hot .btn{margin-top:18px}
+
+/* contact */
+footer{background:var(--accent);color:var(--ink)}
+footer .wrap{padding-block:clamp(72px,9vw,120px) 48px}
+footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
+.book{display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px;margin-top:36px}
+.book .btn{min-height:60px;font-size:clamp(16px,2vw,20px);word-break:break-all}
+.book span{font-weight:500}
+.book .btn-fb{min-height:52px;font-size:17px;padding:0 26px;word-break:normal}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;margin-top:clamp(56px,8vw,100px);padding-top:26px;border-top:2px solid var(--ink);font-weight:500;font-size:16px}
+.foot nav{gap:24px;flex-wrap:wrap}
+.foot nav a{display:inline!important}
+.foot nav a:hover{text-decoration:underline;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Ben Brunner</a>
+    <nav aria-label="Main">
+      <div class="navlinks" id="navlinks">
+        <a href="live.html" aria-current="page">Live</a>
+        <a href="index.html#videos">Videos</a>
+        <a href="index.html#demos">Demos</a>
+        <a href="index.html#hosting">Hosting</a>
+        <a href="about.html">About</a>
+        <a href="index.html#gallery">Gallery</a>
+      </div>
+      <a class="btn btn-accent" href="#contact">Book me</a>
+      <button class="menu-btn" type="button" aria-controls="navlinks" aria-expanded="false" aria-label="Open menu">
+        <svg class="bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="live-hero wrap" aria-labelledby="live-title">
+    <div class="onair">Live on Facebook</div>
+    <h1 id="live-title">Live</h1>
+    <p>When I go live on my Facebook Page, the stream shows up at the top of the feed below. Tap it to watch, comment and say hi. No stream right now? You'll see my latest posts instead.</p>
+    <div class="actions">
+      <a class="btn btn-accent" href="https://www.facebook.com/profile.php?id=61552185268727&amp;sk=videos" target="_blank" rel="noopener">Watch on Facebook</a>
+      <a class="btn btn-line" href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">Follow my Page</a>
+    </div>
+  </section>
+
+  <section class="wrap live-grid" aria-label="Facebook feed">
+    <div class="feed">
+      <div class="feed-box" id="feed-box"></div>
+    </div>
+    <div class="tips">
+      <div class="tip hot">
+        <strong>Never miss a stream</strong>
+        <p>Follow my Facebook Page and Facebook will let you know the moment I go live.</p>
+        <a class="btn btn-dark" href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">Follow on Facebook</a>
+      </div>
+      <div class="tip">
+        <strong>Feed not showing?</strong>
+        <p>Some browsers and ad blockers hide Facebook feeds on other websites. You can always <a class="inline" href="https://www.facebook.com/profile.php?id=61552185268727&amp;sk=videos" target="_blank" rel="noopener">watch my streams on Facebook</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's make<br>some noise.</h2>
+    <div class="book">
+      <a class="btn btn-dark" href="book.html">Book Now</a>
+      <a class="btn btn-outline btn-fb" href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
+        Follow me on Facebook
+      </a>
+      <span>Voiceover bookings, events and agency inquiries.</span>
+    </div>
+    <div class="foot">
+      <span>© <span id="year">2026</span> Ben Brunner, Emcee Ben Jammin</span>
+      <nav aria-label="Social">
+        <a href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/emceebenjammin/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@EmceeBenJammin/videos" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/benjamin-brunner-8b98b9132/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="https://www.whcp.org/people/ben-brunner-1" target="_blank" rel="noopener">WHCP</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Phone menu
+  (function(){
+    var header = document.querySelector('header');
+    var btn = header.querySelector('.menu-btn');
+    function setOpen(open){
+      header.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    btn.addEventListener('click', function(){ setOpen(!header.classList.contains('open')); });
+    header.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && header.classList.contains('open')) { setOpen(false); btn.focus(); } });
+    document.addEventListener('click', function(e){ if (!header.contains(e.target)) setOpen(false); });
+  })();
+
+  // Facebook Page feed. Live streams appear at the top while Ben is broadcasting.
+  (function(){
+    var box = document.getElementById('feed-box');
+    var page = 'https://www.facebook.com/profile.php?id=61552185268727';
+    function load(){
+      var w = Math.max(180, Math.min(500, Math.floor(box.clientWidth)));
+      var src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(page) +
+        '&tabs=timeline&width=' + w + '&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false';
+      box.innerHTML = '';
+      var f = document.createElement('iframe');
+      f.src = src;
+      f.title = 'Ben Brunner on Facebook: live streams and latest posts';
+      f.loading = 'lazy';
+      f.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      f.style.width = w + 'px';
+      f.style.maxWidth = '100%';
+      box.appendChild(f);
+      box.dataset.w = w;
+    }
+    load();
+    var t;
+    window.addEventListener('resize', function(){
+      clearTimeout(t);
+      t = setTimeout(function(){ var w = Math.max(180, Math.min(500, Math.floor(box.clientWidth))); if (String(w) !== box.dataset.w) load(); }, 400);
+    });
+  })();
+</script>
+</body>
+</html>
