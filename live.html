@@ -97,6 +97,9 @@ nav a[aria-current="page"]{color:var(--accent)}
 .schedule li span{font-weight:500}
 .schedule li b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:.3px}
 .schedule li.today b{color:var(--accent)}
+.schedule li small{display:block;margin-top:3px;color:var(--soft);font-size:15px;font-weight:500;line-height:1.35}
+.schedule li small strong{color:var(--accent);font-weight:700;letter-spacing:.5px}
+.schedule li b{white-space:nowrap}
 .schedule .now{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;background:var(--accent);color:var(--ink);font-size:13px;font-weight:700;vertical-align:2px}
 
 /* contact */
@@ -154,10 +157,10 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
         <h2 id="sched-title">When I go live</h2>
         <p class="tz">Every week, Eastern Time</p>
         <ul aria-labelledby="sched-title">
-          <li data-day="1"><span>Mondays</span><b>5:30 pm</b></li>
-          <li data-day="2"><span>Tuesdays</span><b>7:00 pm</b></li>
-          <li data-day="3"><span>Wednesdays</span><b>6:30 pm</b></li>
-          <li data-day="0"><span>Sundays</span><b>5:00 pm</b></li>
+          <li data-day="1"><span><span class="day">Mondays</span><small><strong>LIVE</strong> from Fins in Georgetown, DE</small></span><b>5:30 pm</b></li>
+          <li data-day="2"><span><span class="day">Tuesdays</span><small><strong>LIVE</strong> from Rehoboth Beach, DE</small></span><b>7:00 pm</b></li>
+          <li data-day="3"><span><span class="day">Wednesdays</span><small><strong>LIVE</strong> from Delmar, MD</small></span><b>6:30 pm</b></li>
+          <li data-day="0"><span><span class="day">Sundays</span><small><strong>LIVE</strong> from Bethany Beach, DE</small></span><b>5:00 pm</b></li>
         </ul>
       </div>
     </div>
@@ -250,7 +253,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       var d = new Date().toLocaleDateString('en-US', {weekday: 'short', timeZone: 'America/New_York'});
       var n = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(d);
       var li = document.querySelector('.schedule li[data-day="' + n + '"]');
-      if (li) { li.classList.add('today'); var t = document.createElement('em'); t.className = 'now'; t.style.fontStyle = 'normal'; t.textContent = 'Today'; li.querySelector('span').appendChild(t); }
+      if (li) { li.classList.add('today'); var t = document.createElement('em'); t.className = 'now'; t.style.fontStyle = 'normal'; t.textContent = 'Today'; li.querySelector('.day').appendChild(t); }
     } catch (e) {}
   })();
 </script>
