@@ -202,6 +202,25 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 .foot nav{gap:24px;flex-wrap:wrap}
 .foot nav a{display:inline!important}
 .foot nav a:hover{text-decoration:underline;color:var(--ink)}
+/* viewer comments crawl */
+.reviews{padding-block:clamp(56px,7vw,96px);border-top:1px solid var(--line);overflow:hidden}
+.reviews .head{margin-bottom:36px}
+.reviews .head h2{font-size:clamp(44px,5.5vw,76px)}
+.crawl{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.crawl-track{display:flex;gap:20px;width:max-content;padding-right:20px;animation:crawl 70s linear infinite}
+.crawl:hover .crawl-track,.crawl:focus-within .crawl-track{animation-play-state:paused}
+@keyframes crawl{to{transform:translateX(-50%)}}
+.review{flex:0 0 auto;width:min(360px,78vw);display:flex;flex-direction:column;justify-content:space-between;gap:22px;padding:26px;border-radius:24px;background:var(--panel);border:1px solid var(--line);transition:border-color .15s ease}
+.review:hover{border-color:var(--accent)}
+.review blockquote{margin:0;font-size:20px;font-weight:500;line-height:1.4}
+.review blockquote::before{content:"\201C";display:block;font-family:var(--display);font-size:64px;line-height:.7;color:var(--accent);margin-bottom:6px}
+.review .who{font-size:15px;color:var(--muted);line-height:1.35}
+.review .who b{display:block;color:var(--paper);font-weight:700;margin-bottom:2px}
+@media (prefers-reduced-motion:reduce){
+  .crawl{overflow-x:auto;-webkit-mask-image:none;mask-image:none;padding-bottom:12px}
+  .crawl-track{animation:none}
+  .crawl-track [aria-hidden="true"]{display:none}
+}
 </style>
 </head>
 <body>
@@ -366,6 +385,17 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       <img class="wide" src="images/top-host.jpg" alt="Ben Brunner's Top Host contest graphic for On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
     </div>
   </section>
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2 id="reviews-title">What viewers are saying</h2>
+          <p>Real comments from YouTube viewers on videos I've narrated.</p>
+        </div>
+      </div>
+    </div>
+    <div class="crawl" id="crawl"><div class="crawl-track" id="crawl-track"></div></div>
+  </section>
 </main>
 
 <footer id="contact">
@@ -505,6 +535,47 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       grid.appendChild(c);
     });
     showMain(VIDEOS[0], false);
+  })();
+</script>
+<script>
+  // Viewer comments crawl. Each line: [comment text, @handle, video ID].
+  // Quotes are copied word for word from the YouTube comments on these videos.
+  var REVIEWS = [
+    ['I vastly prefer this guy over the Marvelous Videos lot.', '@Professor_K_Oss', 'OwHijC9XLfI'],
+    ['Thank you for another Amazing video!', '@AHabitualUser', 'DS0iMB20W_w'],
+    ['Thanks for this video the more people like you make green lantern content the better Keep it up \u{1FAE1}\u{1F91D}', '@Nomad_2244', '1_haResGMGE'],
+    ['this is so awesome!!!! ty so much!!!!', '@zachageeart', 'ShS7KlOA9tE'],
+    ['Great video, thank you \u2764', '@fokendikhed', '_Mdg8qf3K-U'],
+    ['Very nice description. \u{1F44D}', '@johnnymiller3793', 'OwHijC9XLfI'],
+    ['I enjoyed the entirety of the video.', '@JB52520', '_Mdg8qf3K-U'],
+    ['Thanks for sharing this it was very informative. \u{1F44D}', '@EnesndBellwil', 'bvInb1tGALQ'],
+    ['Great upload!', '@Weniavin1206', 'OwHijC9XLfI'],
+    ['Good work.', '@scottstallings3543', '_Mdg8qf3K-U']
+  ];
+  (function(){
+    var track = document.getElementById('crawl-track');
+    if (!track) return;
+    function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+    function titleFor(id){ for (var i = 0; i < VIDEOS.length; i++) if (VIDEOS[i][0] === id) return VIDEOS[i]; return null; }
+    function build(hidden){
+      var g = document.createElement('div');
+      g.style.display = 'contents';
+      REVIEWS.forEach(function(r){
+        var v = titleFor(r[2]);
+        var a = document.createElement('a');
+        a.className = 'review';
+        a.href = 'https://www.youtube.com/watch?v=' + r[2];
+        a.target = '_blank';
+        a.rel = 'noopener';
+        if (hidden) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
+        a.innerHTML = '<blockquote>' + esc(r[0]) + '</blockquote>' +
+          '<div class="who"><b>' + esc(r[1]) + '</b>' + (v ? 'on ' + esc(v[1]) : 'on YouTube') + '</div>';
+        g.appendChild(a);
+      });
+      return g;
+    }
+    track.appendChild(build(false));
+    track.appendChild(build(true)); // second copy makes the loop seamless
   })();
 </script>
 </body>
