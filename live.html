@@ -88,6 +88,17 @@ nav a[aria-current="page"]{color:var(--accent)}
 .tip.hot p{color:var(--ink)}
 .tip.hot .btn{margin-top:18px}
 
+.schedule{max-width:500px;margin:28px auto 4px}
+.schedule h2{font-size:clamp(32px,3.2vw,44px)}
+.schedule .tz{color:var(--muted);font-size:15px;margin-top:8px}
+.schedule ul{list-style:none;margin:16px 0 0;padding:0}
+.schedule li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 4px;border-top:1px solid var(--line);font-size:19px}
+.schedule li:last-child{border-bottom:1px solid var(--line)}
+.schedule li span{font-weight:500}
+.schedule li b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:.3px}
+.schedule li.today b{color:var(--accent)}
+.schedule .now{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;background:var(--accent);color:var(--ink);font-size:13px;font-weight:700;vertical-align:2px}
+
 /* contact */
 footer{background:var(--accent);color:var(--ink)}
 footer .wrap{padding-block:clamp(72px,9vw,120px) 48px}
@@ -139,6 +150,16 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   <section class="wrap live-grid" aria-label="Facebook feed">
     <div class="feed">
       <div class="feed-box" id="feed-box"></div>
+      <div class="schedule">
+        <h2 id="sched-title">When I go live</h2>
+        <p class="tz">Every week, Eastern Time</p>
+        <ul aria-labelledby="sched-title">
+          <li data-day="1"><span>Mondays</span><b>5:30 pm</b></li>
+          <li data-day="2"><span>Tuesdays</span><b>7:00 pm</b></li>
+          <li data-day="3"><span>Wednesdays</span><b>6:30 pm</b></li>
+          <li data-day="0"><span>Sundays</span><b>5:00 pm</b></li>
+        </ul>
+      </div>
     </div>
     <div class="tips">
       <div class="tip hot">
@@ -222,6 +243,15 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       clearTimeout(t);
       t = setTimeout(function(){ var w = Math.max(180, Math.min(500, Math.floor(box.clientWidth))); if (String(w) !== box.dataset.w) load(); }, 400);
     });
+  })();
+  // Highlight today's stream on the schedule (based on Eastern Time).
+  (function(){
+    try {
+      var d = new Date().toLocaleDateString('en-US', {weekday: 'short', timeZone: 'America/New_York'});
+      var n = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(d);
+      var li = document.querySelector('.schedule li[data-day="' + n + '"]');
+      if (li) { li.classList.add('today'); var t = document.createElement('em'); t.className = 'now'; t.style.fontStyle = 'normal'; t.textContent = 'Today'; li.querySelector('span').appendChild(t); }
+    } catch (e) {}
   })();
 </script>
 </body>
