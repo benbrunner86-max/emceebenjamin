@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Live | Ben Brunner</title>
-<meta name="description" content="Watch Ben Brunner (Emcee Ben Jammin) live on Facebook: livestreams, trivia nights and behind-the-scenes from the booth.">
+<meta name="description" content="Watch Ben Brunner (Emcee Ben Jammin) live on YouTube: livestreams, trivia nights and behind-the-scenes from the booth.">
 <meta property="og:title" content="Live | Ben Brunner">
-<meta property="og:description" content="Catch Ben Brunner's livestreams from his Facebook Page.">
+<meta property="og:description" content="Catch Ben Brunner's livestreams on his YouTube channel.">
 <meta property="og:image" content="images/headshot.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23FF5A1F'/%3E%3Crect x='8' y='12' width='3' height='8' rx='1.5' fill='%23121016'/%3E%3Crect x='14.5' y='7' width='3' height='18' rx='1.5' fill='%23121016'/%3E%3Crect x='21' y='10' width='3' height='12' rx='1.5' fill='%23121016'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,11 +74,11 @@ nav a[aria-current="page"]{color:var(--accent)}
 .live-hero p{max-width:620px;margin-top:26px;font-size:clamp(18px,1.6vw,21px);color:var(--soft)}
 .actions{display:flex;flex-wrap:wrap;gap:14px}
 .live-hero .actions{margin-top:32px}
-.live-grid{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:20px;align-items:start;padding-bottom:clamp(72px,9vw,120px)}
+.live-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:start;padding-bottom:clamp(72px,9vw,120px)}
 @media (max-width:900px){.live-grid{grid-template-columns:1fr}}
 .feed{padding:clamp(12px,2vw,24px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
-.feed-box{width:100%;max-width:500px;margin:0 auto;min-height:300px;border-radius:12px;overflow:hidden;background:#fff}
-.feed-box iframe{display:block;border:0;width:100%;height:800px}
+.feed-box{width:100%;margin:0 auto;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.feed-box iframe{display:block;border:0;width:100%;height:100%}
 .tips{display:flex;flex-direction:column;gap:20px}
 .tip{padding:26px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
 .tip strong{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05;text-transform:uppercase;margin-bottom:10px}
@@ -144,16 +144,16 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
 
 <main id="top">
   <section class="live-hero wrap" aria-labelledby="live-title">
-    <div class="onair">Live on Facebook</div>
+    <div class="onair">Live on YouTube</div>
     <h1 id="live-title">Live</h1>
-    <p>When I go live on my Facebook Page, the stream shows up at the top of the feed below. Tap it to watch, comment and say hi. No stream right now? You'll see my latest posts instead.</p>
+    <p>When I go live on my YouTube channel, the stream plays right here. Hit play to watch, and jump over to YouTube to chat and say hi. Not live right now? Check the schedule below.</p>
     <div class="actions">
-      <a class="btn btn-accent" href="https://www.facebook.com/profile.php?id=61552185268727&amp;sk=videos" target="_blank" rel="noopener">Watch on Facebook</a>
-      <a class="btn btn-line" href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">Follow my Page</a>
+      <a class="btn btn-accent" href="https://www.youtube.com/@EmceeBenJammin/live" target="_blank" rel="noopener">Watch on YouTube</a>
+      <a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
     </div>
   </section>
 
-  <section class="wrap live-grid" aria-label="Facebook feed">
+  <section class="wrap live-grid" aria-label="YouTube live stream">
     <div class="feed">
       <div class="feed-box" id="feed-box"></div>
       <div class="schedule">
@@ -170,12 +170,12 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     <div class="tips">
       <div class="tip hot">
         <strong>Never miss a stream</strong>
-        <p>Follow my Facebook Page and Facebook will let you know the moment I go live.</p>
-        <a class="btn btn-dark" href="https://www.facebook.com/profile.php?id=61552185268727" target="_blank" rel="noopener">Follow on Facebook</a>
+        <p>Subscribe on YouTube and tap the bell, and YouTube will let you know the moment I go live.</p>
+        <a class="btn btn-dark" href="https://www.youtube.com/@EmceeBenJammin?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
       </div>
       <div class="tip">
-        <strong>Feed not showing?</strong>
-        <p>Some browsers and ad blockers hide Facebook feeds on other websites. You can always <a class="inline" href="https://www.facebook.com/profile.php?id=61552185268727&amp;sk=videos" target="_blank" rel="noopener">watch my streams on Facebook</a>.</p>
+        <strong>Player not showing?</strong>
+        <p>Some browsers and ad blockers hide YouTube players on other websites. You can always <a class="inline" href="https://www.youtube.com/@EmceeBenJammin/live" target="_blank" rel="noopener">watch my streams on YouTube</a>.</p>
       </div>
     </div>
   </section>
@@ -223,32 +223,17 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     document.addEventListener('click', function(e){ if (!header.contains(e.target)) setOpen(false); });
   })();
 
-  // Facebook Page feed. Live streams appear at the top while Ben is broadcasting.
+  // YouTube live player. Shows the channel's current live stream; when offline YouTube shows the next scheduled stream or an offline notice.
   (function(){
     var box = document.getElementById('feed-box');
-    var page = 'https://www.facebook.com/profile.php?id=61552185268727';
-    function load(){
-      var w = Math.max(180, Math.min(500, Math.floor(box.clientWidth)));
-      var src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(page) +
-        '&tabs=timeline&width=' + w + '&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false';
-      box.innerHTML = '';
-      var f = document.createElement('iframe');
-      f.src = src;
-      f.title = 'Ben Brunner on Facebook: live streams and latest posts';
-      f.loading = 'lazy';
-      f.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
-      f.allowFullscreen = true;
-      f.style.width = w + 'px';
-      f.style.maxWidth = '100%';
-      box.appendChild(f);
-      box.dataset.w = w;
-    }
-    load();
-    var t;
-    window.addEventListener('resize', function(){
-      clearTimeout(t);
-      t = setTimeout(function(){ var w = Math.max(180, Math.min(500, Math.floor(box.clientWidth))); if (String(w) !== box.dataset.w) load(); }, 400);
-    });
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube.com/embed/live_stream?channel=UC29tqQ-xhm5d9K0ZzaFAybQ&rel=0';
+    f.title = 'Ben Brunner live on YouTube';
+    f.loading = 'lazy';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    box.appendChild(f);
   })();
   // Highlight today's stream on the schedule (based on Eastern Time).
   (function(){
