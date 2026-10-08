@@ -79,6 +79,9 @@ nav a[aria-current="page"]{color:var(--accent)}
 .feed{padding:clamp(12px,2vw,24px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
 .feed-box{width:100%;margin:0 auto;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
 .feed-box iframe{display:block;border:0;width:100%;height:100%}
+.player-status{margin:14px 4px 0;color:var(--soft);font-size:16px}
+.player-status strong{color:var(--paper)}
+body.is-live .player-status strong{color:var(--accent)}
 .tips{display:flex;flex-direction:column;gap:20px}
 .tip{padding:26px;border-radius:24px;background:var(--panel);border:1px solid var(--line)}
 .tip strong{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05;text-transform:uppercase;margin-bottom:10px}
@@ -146,7 +149,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   <section class="live-hero wrap" aria-labelledby="live-title">
     <div class="onair">Live on YouTube</div>
     <h1 id="live-title">Live</h1>
-    <p>When I go live on my YouTube channel, the stream plays right here. Hit play to watch, and jump over to YouTube to chat and say hi. Not live right now? Check the schedule below.</p>
+    <p>When I go live on my YouTube channel, the stream plays right here. When I'm not live, you'll catch my latest voiceover work on a loop. Jump over to YouTube to chat and say hi, and check the schedule below for my next stream.</p>
     <div class="actions">
       <a class="btn btn-accent" href="https://www.youtube.com/@EmceeBenJammin/live" target="_blank" rel="noopener">Watch on YouTube</a>
       <a class="btn btn-line" href="https://www.youtube.com/@EmceeBenJammin?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
@@ -156,6 +159,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   <section class="wrap live-grid" aria-label="YouTube live stream">
     <div class="feed">
       <div class="feed-box" id="feed-box"></div>
+      <p class="player-status" id="player-status" aria-live="polite"></p>
       <div class="schedule">
         <h2 id="sched-title">When I go live</h2>
         <p class="tz">Every week, Eastern Time</p>
@@ -223,17 +227,83 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
     document.addEventListener('click', function(e){ if (!header.contains(e.target)) setOpen(false); });
   })();
 
-  // YouTube live player. Shows the channel's current live stream; when offline YouTube shows the next scheduled stream or an offline notice.
+  // Live player: when Ben is live on YouTube it shows the stream; otherwise it loops his latest voiceover
+  // videos (the same list as "Latest voiceover work" on the home page). Checks for a live stream every 2 minutes.
   (function(){
+    var CHANNEL = 'UC29tqQ-xhm5d9K0ZzaFAybQ';
+    var CHECK_MS = 120000;
+    var FALLBACK = ['FnewvNMejxc','EsoDRjyldqw','DqvseGl35vU','2JDvqUH0h2w','2gS3gnFLA-s'];
     var box = document.getElementById('feed-box');
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube.com/embed/live_stream?channel=UC29tqQ-xhm5d9K0ZzaFAybQ&rel=0';
-    f.title = 'Ben Brunner live on YouTube';
-    f.loading = 'lazy';
-    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    f.referrerPolicy = 'strict-origin-when-cross-origin';
-    f.allowFullscreen = true;
-    box.appendChild(f);
+    var status = document.getElementById('player-status');
+    var player = null, mode = null, ids = FALLBACK, checking = false;
+    function setStatus(live){
+      document.body.classList.toggle('is-live', live);
+      if (status) status.innerHTML = live
+        ? '<strong>Live now.</strong> Turn the sound up and say hi in the YouTube chat.'
+        : '<strong>Not live right now.</strong> Here is my latest voiceover work on a loop. Tap the speaker to unmute.';
+    }
+    function clearBox(){ if (player && player.destroy) { try { player.destroy(); } catch (e) {} } player = null; box.innerHTML = ''; }
+    function showLive(){
+      if (mode === 'live') return;
+      clearBox(); mode = 'live'; setStatus(true);
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/live_stream?channel=' + CHANNEL + '&autoplay=1&mute=1&rel=0&playsinline=1';
+      f.title = 'Ben Brunner live on YouTube';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      box.appendChild(f);
+    }
+    function showLoop(){
+      if (mode === 'loop') return;
+      clearBox(); mode = 'loop'; setStatus(false);
+      var d = document.createElement('div'); box.appendChild(d);
+      player = new YT.Player(d, {
+        videoId: ids[0],
+        playerVars: { autoplay: 1, mute: 1, loop: 1, playlist: ids.join(','), rel: 0, playsinline: 1 },
+        events: {
+          onReady: function(e){ e.target.mute(); e.target.playVideo(); },
+          onError: function(e){ try { e.target.nextVideo(); } catch (x) {} }
+        }
+      });
+    }
+    function checkLive(cb){
+      var done = false, p = null;
+      var wrap = document.createElement('div');
+      wrap.setAttribute('aria-hidden', 'true');
+      wrap.style.cssText = 'position:absolute;left:-9999px;top:0;width:320px;height:180px;overflow:hidden';
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/live_stream?channel=' + CHANNEL + '&enablejsapi=1&mute=1&origin=' + encodeURIComponent(location.origin);
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.tabIndex = -1;
+      wrap.appendChild(f); document.body.appendChild(wrap);
+      function finish(live){ if (done) return; done = true; try { p.destroy(); } catch (e) {} wrap.remove(); cb(live); }
+      p = new YT.Player(f, { events: {
+        onReady: function(e){ setTimeout(function(){
+          var v = {}; try { v = e.target.getVideoData() || {}; } catch (x) {}
+          finish(!!(v.video_id && v.video_id !== 'live_stream' && v.isPlayable !== false && !v.errorCode));
+        }, 1500); },
+        onError: function(){ finish(false); }
+      } });
+      setTimeout(function(){ finish(false); }, 15000);
+    }
+    function check(){
+      if (checking || document.hidden) return;
+      checking = true;
+      checkLive(function(live){ checking = false; if (live) showLive(); else showLoop(); });
+    }
+    function loadIds(){
+      return fetch('index.html', { cache: 'no-cache' }).then(function(r){ return r.text(); }).then(function(t){
+        var s = t.indexOf('var VIDEOS'), e = t.indexOf('];', s);
+        var found = [], re = /\['([A-Za-z0-9_-]{11})'/g, m, block = s < 0 ? '' : t.slice(s, e);
+        while ((m = re.exec(block))) found.push(m[1]);
+        if (found.length) ids = found;
+      }).catch(function(){});
+    }
+    function start(){ loadIds().then(function(){ check(); setInterval(check, CHECK_MS); document.addEventListener('visibilitychange', function(){ if (!document.hidden) check(); }); }); }
+    function waitForApi(){ if (window.YT && YT.Player) start(); else setTimeout(waitForApi, 200); }
+    var tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag);
+    waitForApi();
   })();
   // Highlight today's stream on the schedule (based on Eastern Time).
   (function(){
