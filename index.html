@@ -250,7 +250,9 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 .vote .tag{font-weight:700;font-size:16px}
 .vote h2{font-size:clamp(56px,7vw,96px)}
 .vote p{font-size:clamp(18px,1.6vw,21px);font-weight:500}
-.vote img{width:100%;height:auto;border-radius:18px;background:#0B1740}
+.vote img{width:100%;height:auto;border-radius:18px;background:#fff}
+.vote-graphic{display:block;max-width:900px;border-radius:18px;overflow:hidden;transition:transform .15s ease}
+.vote-graphic:hover{transform:translateY(-3px)}
 .exclusive{padding-bottom:clamp(40px,6vw,72px)}
 .excl-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);align-items:center;gap:clamp(24px,4vw,56px);padding:clamp(24px,4vw,48px);border-radius:24px;background:var(--panel);border:1px solid var(--line)}
 .excl-text{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
@@ -354,10 +356,10 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
       <div class="vote-text">
         <div class="tag">Top Host 2026</div>
         <h2 id="vote-title">Vote for me</h2>
-        <p>Please vote for me when voting starts! I will post the link when it's live, thank you so much! The QR code in my headshot below should direct you to the website's countdown.</p>
+        <p>Voting is live! Please vote for me in Top Host 2026. Tap the button, click the graphic, or scan the QR code below to cast your vote. Thank you so much!</p>
         <a class="btn btn-dark" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener">Visit my Top Host page</a>
       </div>
-      <img src="images/top-host.jpg" alt="Top Host graphic: Vote for me, with Ben's headshot and a QR code to his Top Host page. On Air with Ryan Seacrest, iHeartRadio and RØDE" loading="lazy">
+      <a class="vote-graphic" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener"><img src="images/top-host-vote.jpg" alt="Top Host graphic: Vote for me, with Ben's headshot and a QR code to his Top Host page, tophost.org/2026/benjamin-j-brunner. On Air with Ryan Seacrest, iHeartRadio and RØDE" width="1330" height="856" loading="lazy"></a>
     </div>
   </section>
 
