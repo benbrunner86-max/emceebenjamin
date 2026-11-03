@@ -241,7 +241,7 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
   })();
 
   // Live player: when Ben is live on YouTube it shows the stream; otherwise it loops his latest voiceover
-  // videos (the same list as "Latest voiceover work" on the home page). Checks for a live stream every 2 minutes.
+  // videos in a random order each visit (the same list as "Latest voiceover work" on the home page). Checks for a live stream every 2 minutes.
   (function(){
     var CHANNEL = 'UC29tqQ-xhm5d9K0ZzaFAybQ';
     var CHECK_MS = 120000;
@@ -313,7 +313,8 @@ footer h2{font-size:clamp(60px,9.5vw,136px);line-height:.92}
         if (found.length) ids = found;
       }).catch(function(){});
     }
-    function start(){ loadIds().then(function(){ check(); setInterval(check, CHECK_MS); document.addEventListener('visibilitychange', function(){ if (!document.hidden) check(); }); }); }
+    function shuffle(a){ a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function start(){ loadIds().then(function(){ ids = shuffle(ids); check(); setInterval(check, CHECK_MS); document.addEventListener('visibilitychange', function(){ if (!document.hidden) check(); }); }); }
     function waitForApi(){ if (window.YT && YT.Player) start(); else setTimeout(waitForApi, 200); }
     var tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag);
     waitForApi();
