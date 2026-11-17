@@ -303,6 +303,9 @@ footer .soc a:hover{color:#fff}
 .flinks a:hover{color:#8FD0F2}
 .legal{font-size:13px}
 .legal a{text-decoration:underline}
+header .logo,footer .logo{flex-direction:row;align-items:center;gap:12px}
+.logo-pic{width:33px;height:44px;object-fit:cover;border-radius:4px;flex:none}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
 </style>
 </head>
 <body>
@@ -325,7 +328,7 @@ footer .soc a:hover{color:#fff}
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top"><b>Ben <span>Brunner</span></b><small>Emcee Benjammin</small></a>
+    <a class="logo" href="#top"><img class="logo-pic" src="images/logo-photo.jpg" alt="" width="33" height="44"><span class="logo-txt"><b>Ben <span>Brunner</span></b><small>Emcee Benjammin</small></span></a>
     <nav aria-label="Main">
       <div class="navlinks" id="navlinks">
         <a href="live.html">Live</a>
@@ -519,7 +522,7 @@ footer .soc a:hover{color:#fff}
 <footer>
   <div class="wrap">
     <div class="ftop">
-      <a class="logo" href="#top"><b>Ben <span style="color:#8FD0F2">Brunner</span></b><small>Emcee Benjammin</small></a>
+      <a class="logo" href="#top"><img class="logo-pic" src="images/logo-photo.jpg" alt="" width="33" height="44"><span class="logo-txt"><b>Ben <span style="color:#8FD0F2">Brunner</span></b><small>Emcee Benjammin</small></span></a>
       <div class="soc" id="fsoc"></div>
     </div>
     <nav class="flinks" aria-label="Footer">
