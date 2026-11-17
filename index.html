@@ -176,6 +176,8 @@ header.open .menu-btn .x{display:block}
 .promos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 @media (max-width:1000px){.promos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.promos{grid-template-columns:minmax(0,1fr)}}
+.promos.three{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:40px}
+@media (max-width:860px){.promos.three{grid-template-columns:minmax(0,1fr)}}
 .art.tile{display:flex;flex-direction:column;justify-content:space-between;padding:20px;color:#fff}
 .promo .art.tile{aspect-ratio:4/3}
 @media (max-width:520px){.promo .art.tile{aspect-ratio:16/9}.art.tile .t{font-size:24px}}
@@ -357,6 +359,23 @@ footer .soc a:hover{color:#fff}
   <section class="sec" aria-labelledby="promo-title">
     <div class="wrap">
       <h2 class="lead-h" id="promo-title">Voiceover, Live Hosting + Behind the Mic</h2>
+      <div class="promos three">
+        <a class="promo" href="https://tophost.org/2026/benjamin-j-brunner" target="_blank" rel="noopener">
+          <div class="art"><img src="images/top-host.jpg" alt="Ben Brunner's Top Host 2026 contest graphic" loading="lazy"></div>
+          <span class="lbl">Top Host 2026 · Voting is live</span>
+          <b>Vote for Ben in Top Host 2026</b>
+        </a>
+        <a class="promo" href="https://peekwire.com/article/5-live-game-show-hosts-worth-knowing-mid-atlantic#the-bottom-line-on-live-game-show-hosts" target="_blank" rel="noopener">
+          <div class="art top5"><span class="num">5</span><span class="txt">Live game show hosts to watch<small>As featured by PeekWire</small></span></div>
+          <span class="lbl">Press</span>
+          <b>Named one of PeekWire's Top 5 Live Game Show Hosts To Watch</b>
+        </a>
+        <a class="promo" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">
+          <div class="art reel"><span class="t"><small>SoundCloud</small>Voiceover demo reels</span><div class="wave" id="wave" aria-hidden="true"></div></div>
+          <span class="lbl">Listen</span>
+          <b>Hear my voiceover demo reels on SoundCloud</b>
+        </a>
+      </div>
       <div class="promos">
         <a class="promo" href="https://www.youtube.com/playlist?list=PLPmaF1XW-x90aG-5e1J8K2cJqSxAsOQy8" target="_blank" rel="noopener">
           <div class="art tile red"><span class="t"><small>YouTube playlist</small>Red carpet at 2026 <span style="text-transform:none">TiS</span> Lip Sync Battle</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
