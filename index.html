@@ -303,9 +303,6 @@ footer .soc a:hover{color:#fff}
 .flinks a:hover{color:#8FD0F2}
 .legal{font-size:13px}
 .legal a{text-decoration:underline}
-header .logo{flex-direction:row;align-items:center;gap:12px}
-.logo-pic{width:33px;height:44px;object-fit:cover;border-radius:4px;flex:none}
-.logo-txt{display:flex;flex-direction:column;line-height:1}
 </style>
 </head>
 <body>
@@ -328,7 +325,7 @@ header .logo{flex-direction:row;align-items:center;gap:12px}
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top"><img class="logo-pic" src="images/logo-photo.jpg" alt="" width="33" height="44"><span class="logo-txt"><b>Ben <span>Brunner</span></b><small>Emcee Benjammin</small></span></a>
+    <a class="logo" href="#top"><b>Ben <span>Brunner</span></b><small>Emcee Benjammin</small></a>
     <nav aria-label="Main">
       <div class="navlinks" id="navlinks">
         <a href="live.html">Live</a>
@@ -569,6 +566,13 @@ header .logo{flex-direction:row;align-items:center;gap:12px}
   // Latest videos from the YouTube community page.
   // To add a new one: put a new line at the TOP of this list with the video ID (the part after watch?v=), title and channel.
   var VIDEOS = [
+    ['yCalKGSNNMk', 'What Happens to Ellen Ripley After Alien 3?', 'Lore Lockdown'],
+    ['VHZ6lNOypcc', "How Did Freddy's Nightmares (1988-1990) End?", 'Lore Lockdown'],
+    ['aq1oFRWvXcw', 'Mimic (1997) Judas Breed Anatomy Explained', 'Lore Lockdown'],
+    ['QTYT2EqvU0Y', 'What Happens to Selene After Underworld: Evolution?', 'Lore Lockdown'],
+    ['2LsibmPQtVw', 'The Entire Colder Saga Explained', 'Marvelous LongReads'],
+    ['VQrvAwhZEhk', 'How Did Poltergeist: The Legacy (1996-1999) End?', 'Lore Lockdown'],
+    ['DN2U87ykP7c', 'How Did the Red Dwarf TV Show End', 'Lore Lockdown'],
     ['lDyyYkqYnyA', "Smile Entity's Anatomy Explained", 'Lore Lockdown'],
     ['4fpm8MP4QX8', '8 R-Rated Superhero Shows Better Than The Boys', 'Lore Lockdown'],
     ['waU1ES41RNQ', 'Every Cylon Model in the Battlestar Galactica Universe Explored', 'Lore Lockdown'],
@@ -581,14 +585,7 @@ header .logo{flex-direction:row;align-items:center;gap:12px}
     ['ZihXG_cUPrE', "Phantasm's Sentinel Sphere Anatomy", 'Lore Lockdown'],
     ['q7TCett1hEU', "Goa'uld Symbiote Anatomy Explained", 'Lore Lockdown'],
     ['7JG7vtD8c9I', 'Zerg Alien Anatomy Explained', 'Lore Lockdown'],
-    ['no59VsZZsFE', 'How Did Space Ghost Coast to Coast (1994) End?', 'Lore Lockdown'],
-    ['msmdyWtDf8o', 'War Of The Worlds Tripods Anatomy Explored', 'Lore Lockdown'],
-    ['N-nFOcGSJ1s', 'How Did Max Steel (2000) Cartoon End?', 'Lore Lockdown'],
-    ['031BFAc9lUY', 'Entire The Nice House On The Lake Saga', 'Marvelous LongReads'],
-    ['HpkQNVqrOcA', "Agent Zero's Anatomy Explained", 'Lore Lockdown'],
-    ['j3HBYgdC1SY', 'DeLorean Time Machine Anatomy Explained', 'Lore Lockdown'],
-    ['-XwDJ_BhUSI', 'How Did Sleepy Hollow (2013) End?', 'Lore Lockdown'],
-    ['2oFZCjuFEjU', 'How Did the Jem TV Series (1985) End?', 'Lore Lockdown']
+    ['no59VsZZsFE', 'How Did Space Ghost Coast to Coast (1994) End?', 'Lore Lockdown']
   ];
   var GRID_COUNT = 8; // how many smaller videos to show under the featured one
   var MORE_STEP = 8; // how many more videos the "Load more" button adds
