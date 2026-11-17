@@ -173,8 +173,18 @@ header.open .menu-btn .x{display:block}
 .lead-h{text-align:center;font-weight:800;font-size:clamp(22px,2.6vw,30px);margin-bottom:28px}
 
 /* promo strip */
-.promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-@media (max-width:860px){.promos{grid-template-columns:minmax(0,1fr)}}
+.promos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+@media (max-width:1000px){.promos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.promos{grid-template-columns:minmax(0,1fr)}}
+.art.tile{display:flex;flex-direction:column;justify-content:space-between;padding:20px;color:#fff}
+.art.tile .t{font-family:var(--head);font-weight:900;font-size:clamp(22px,2.1vw,28px);text-transform:uppercase;line-height:1.05}
+.art.tile .t small{display:block;font-weight:700;font-size:11px;letter-spacing:.12em;opacity:.85;margin-bottom:8px}
+.art.tile .go{align-self:flex-end;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18)}
+.promo:hover .art.tile .go{background:#fff;color:var(--ink)}
+.promo .art.red{background:linear-gradient(135deg,#D7263D,#7A0F1E)}
+.promo .art.blue{background:linear-gradient(135deg,var(--blue),#0B5E8C)}
+.promo .art.navy{background:linear-gradient(135deg,#24405E,var(--navy))}
+.promo .art.gold{background:linear-gradient(135deg,#E9A21B,#B4610B)}
 .promo{display:flex;flex-direction:column;gap:12px;min-width:0}
 .promo .art{aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:var(--navy);transition:transform .2s ease,box-shadow .2s ease}
 .promo:hover .art{transform:translateY(-3px);box-shadow:0 12px 24px rgba(16,32,48,.16)}
@@ -346,15 +356,25 @@ footer .soc a:hover{color:#fff}
     <div class="wrap">
       <h2 class="lead-h" id="promo-title">Voiceover, Live Hosting + Behind the Mic</h2>
       <div class="promos">
-        <a class="promo" href="https://peekwire.com/article/5-live-game-show-hosts-worth-knowing-mid-atlantic#the-bottom-line-on-live-game-show-hosts" target="_blank" rel="noopener">
-          <div class="art top5"><span class="num">5</span><span class="txt">Live game show hosts to watch<small>As featured by PeekWire</small></span></div>
-          <span class="lbl">Press</span>
-          <b>Named one of PeekWire's Top 5 Live Game Show Hosts To Watch</b>
+        <a class="promo" href="https://www.youtube.com/playlist?list=PLPmaF1XW-x90aG-5e1J8K2cJqSxAsOQy8" target="_blank" rel="noopener">
+          <div class="art tile red"><span class="t"><small>YouTube playlist</small>Red carpet</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <span class="lbl">Red carpet host</span>
+          <b>Interviews at the 2026 TiS Lip Sync Battle</b>
         </a>
-        <a class="promo" href="https://soundcloud.com/ben-brunner-703202643" target="_blank" rel="noopener">
-          <div class="art reel"><span class="t"><small>SoundCloud</small>Voiceover demo reels</span><div class="wave" id="wave" aria-hidden="true"></div></div>
-          <span class="lbl">Listen</span>
-          <b>Hear my voiceover demo reels on SoundCloud</b>
+        <a class="promo" href="https://www.whcp.org/podcast/the-grands-club" target="_blank" rel="noopener">
+          <div class="art tile blue"><span class="t"><small>WHCP Radio podcast</small>The Grands Club</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <span class="lbl">Producer</span>
+          <b>The Grands Club on WHCP Radio</b>
+        </a>
+        <a class="promo" href="https://www.whcp.org/show/from-the-pages-of" target="_blank" rel="noopener">
+          <div class="art tile navy"><span class="t"><small>WHCP Radio show</small>From The Pages Of...</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <span class="lbl">Producer</span>
+          <b>From The Pages Of... on WHCP Radio</b>
+        </a>
+        <a class="promo" href="https://www.youtube.com/watch?v=ezRijfrHI68&amp;list=PLAzjpjXtw93w" target="_blank" rel="noopener">
+          <div class="art tile gold"><span class="t"><small>YouTube playlist</small>Just Singin' 2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <span class="lbl">Emcee</span>
+          <b>Queen Anne's Chorale's Just Singin' 2026</b>
         </a>
       </div>
     </div>
@@ -497,7 +517,7 @@ footer .soc a:hover{color:#fff}
   // Waveform bars, footer socials, year
   (function(){
     var w = document.getElementById('wave');
-    for (var i = 0; i < 70; i++) {
+    if (w) for (var i = 0; i < 70; i++) {
       var s = document.createElement('span');
       s.style.height = Math.round(10 + Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21)) * 52 + (i % 3) * 3) + 'px';
       s.style.animationDelay = (-(i % 12) * 0.15) + 's';
